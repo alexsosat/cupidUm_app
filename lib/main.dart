@@ -1,9 +1,8 @@
-import 'package:cupidum_app/app/modules/intro/utils/first_run_util.dart';
+import 'package:cupidum_app/utils/first_run_util.dart';
 import 'package:cupidum_app/constants/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:is_first_run/is_first_run.dart';
 
 import 'app/routes/app_pages.dart';
 import 'constants/firebase_options.dart';

@@ -1,3 +1,4 @@
+import 'package:cupidum_app/app/modules/intro/bindings/intro_binding.dart';
 import 'package:get/get.dart';
 
 import '../modules/intro/views/intro_view.dart';
@@ -13,11 +14,12 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.intro,
-      page: () => IntroView(),
+      page: () => const IntroView(),
+      binding: IntroBinding(),
     ),
     GetPage(
       name: _Paths.login,
-      page: () => LoginView(),
+      page: () => const LoginView(),
     ),
   ];
 }
