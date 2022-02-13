@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 
+/// The intro page
 class PageData extends StatelessWidget {
+  /// The background gradient of the view
   final List<Color> colorGradient;
+
+  /// The heading image if needed
   final String? imageRoute;
+
+  /// The view title
   final String title;
+
+  /// The view subtitle if needed
   final String? subtitle;
+
+  /// The view body content
   final String body;
 
   const PageData({

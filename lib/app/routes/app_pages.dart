@@ -6,6 +6,7 @@ import '../modules/login/views/login.dart';
 
 part 'app_routes.dart';
 
+/// The Pages for the app
 class AppPages {
   AppPages._();
 

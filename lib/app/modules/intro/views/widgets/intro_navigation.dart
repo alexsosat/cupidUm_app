@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import 'elevated_icon.dart';
 
+/// The bottom navigation of the screen
 class IntroNavigation extends StatelessWidget {
   const IntroNavigation({Key? key}) : super(key: key);
 

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+/// The light mode theme of the app
 final ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
   colorScheme: ColorScheme.light(
@@ -23,6 +24,7 @@ final ThemeData lightTheme = ThemeData(
   ),
 );
 
+/// The dark mode theme of the app
 final ThemeData darkTheme = ThemeData(
   primarySwatch: Colors.blue,
 );

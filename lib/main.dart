@@ -10,11 +10,13 @@ import 'constants/firebase_options.dart';
 bool isFirstRun = false;
 
 void main() async {
+  // Initialization of the firebase service
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  // Check if is first time use
   await CheckFirstRun.initializeUtil();
   CheckFirstRun.assignFirstRoute();
 

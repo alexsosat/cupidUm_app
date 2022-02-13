@@ -5,6 +5,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 
 import 'page_data.dart';
 
+/// The intro screens the user has to see
 class PageViews extends GetView<IntroController> {
   const PageViews({Key? key}) : super(key: key);
 

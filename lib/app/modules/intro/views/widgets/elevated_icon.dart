@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
+/// An icon button with a greyed icon at its background
 class ElevatedIcon extends StatelessWidget {
+  /// the icon to display
   final IconData icon;
+
+  /// The icon color
   final Color iconColor;
+
+  /// The icon size
   final double? size;
   const ElevatedIcon({
     Key? key,
