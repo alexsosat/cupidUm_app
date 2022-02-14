@@ -22,7 +22,6 @@ class ForeGroundSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
-    print(deviceHeight * 0.05);
 
     return Align(
       alignment: Alignment.bottomCenter,
