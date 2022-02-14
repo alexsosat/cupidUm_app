@@ -1,7 +1,9 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../modules/intro/middlewares/is_user_logged_in.dart';
+import '../modules/intro/modules/login/bindings/login_binding.dart';
 import '../modules/intro/modules/login/views/login_view.dart';
+import '../modules/intro/modules/register/bindings/register_bindings.dart';
 import '../modules/intro/modules/register/views/register_view.dart';
 import '../modules/intro/views/intro_view.dart';
 import '../modules/presentation/bindings/presentation_binding.dart';
@@ -29,10 +31,12 @@ class AppPages {
     GetPage(
       name: _Paths.login,
       page: () => LoginView(),
+      binding: LoginBinding(),
     ),
     GetPage(
       name: _Paths.register,
       page: () => RegisterView(),
+      binding: RegisterBinding(),
     ),
   ];
 }

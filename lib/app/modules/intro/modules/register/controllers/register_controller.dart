@@ -2,20 +2,22 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginController extends GetxController {
+class RegisterController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
-  void login() async {
+  void register() async {
     try {
-      await _auth.signInWithEmailAndPassword(
+      await _auth.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
     } catch (e) {
       Get.snackbar(
-        "Error",
+        "Error al crear cuenta",
         e.toString(),
         snackPosition: SnackPosition.BOTTOM,
       );

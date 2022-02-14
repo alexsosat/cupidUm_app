@@ -1,13 +1,14 @@
-import 'package:cupidum_app/app/modules/intro/widgets/email_login_input.dart';
-import 'package:cupidum_app/app/modules/intro/widgets/password_login_input.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class LoginForm extends StatelessWidget {
+import '../../../../widgets/email_login_input.dart';
+import '../../../../widgets/password_login_input.dart';
+import '../../controllers/login_controller.dart';
+
+class LoginForm extends GetView<LoginController> {
   final GlobalKey<FormState> formKey;
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
 
-  LoginForm({
+  const LoginForm({
     Key? key,
     required this.formKey,
   }) : super(key: key);
@@ -18,8 +19,8 @@ class LoginForm extends StatelessWidget {
       key: formKey,
       child: Column(
         children: [
-          EmailLoginInput(controller: _emailController),
-          PasswordLoginInput(controller: _passwordController),
+          EmailLoginInput(controller: controller.emailController),
+          PasswordLoginInput(controller: controller.passwordController),
         ],
       ),
     );

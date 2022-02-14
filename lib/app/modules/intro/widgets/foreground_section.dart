@@ -8,6 +8,7 @@ class ForeGroundSection extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final String submitButtonText;
   final bool showRecoverPassword;
+  final Function() onSubmit;
 
   const ForeGroundSection({
     Key? key,
@@ -16,6 +17,7 @@ class ForeGroundSection extends StatelessWidget {
     required this.form,
     required this.formKey,
     required this.submitButtonText,
+    required this.onSubmit,
     this.showRecoverPassword = false,
   }) : super(key: key);
 
@@ -64,7 +66,9 @@ class ForeGroundSection extends StatelessWidget {
                       PillButton(
                         child: Text(submitButtonText),
                         onPressed: () {
-                          formKey.currentState!.validate();
+                          if (formKey.currentState!.validate()) {
+                            onSubmit();
+                          }
                         },
                       ),
                       if (showRecoverPassword)

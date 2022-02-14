@@ -26,7 +26,7 @@ class EmailLoginInput extends StatelessWidget {
         validator: (value) {
           if (value!.isEmpty) {
             return "Favor de llenar este campo";
-          } else if (GetUtils.isEmail(value)) {
+          } else if (!GetUtils.isEmail(value)) {
             return "Favor de ingresar un correo válido";
           }
           return null;

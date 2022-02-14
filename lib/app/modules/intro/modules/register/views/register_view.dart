@@ -1,10 +1,12 @@
-import 'package:cupidum_app/app/modules/intro/modules/register/views/widgets/register_form.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../widgets/background_gradient_title.dart';
 import '../../../widgets/foreground_section.dart';
+import '../controllers/register_controller.dart';
+import 'widgets/register_form.dart';
 
-class RegisterView extends StatelessWidget {
+class RegisterView extends GetView<RegisterController> {
   final _formKey = GlobalKey<FormState>(debugLabel: '_RegisterFormState');
   RegisterView({Key? key}) : super(key: key);
 
@@ -20,6 +22,7 @@ class RegisterView extends StatelessWidget {
             title: "REGISTRO",
             subtitle: "Registrate para continuar",
             submitButtonText: "FINALIZAR",
+            onSubmit: () => controller.register(),
             form: RegisterForm(
               formKey: _formKey,
             ),
