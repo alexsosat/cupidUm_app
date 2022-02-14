@@ -1,12 +1,12 @@
-import 'package:cupidum_app/app/modules/intro/controllers/intro_controller.dart';
 import 'package:cupidum_app/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
+import '../../controllers/presentation_controller.dart';
 import 'page_data.dart';
 
 /// The intro screens the user has to see
-class PageViews extends GetView<IntroController> {
+class PageViews extends GetView<PresentationController> {
   const PageViews({Key? key}) : super(key: key);
 
   @override

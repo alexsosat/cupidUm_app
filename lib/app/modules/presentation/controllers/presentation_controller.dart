@@ -2,7 +2,7 @@ import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class IntroController extends GetxController {
+class PresentationController extends GetxController {
   /// The intro view the user is in
   Rx<int> currentPageIndex = Rx<int>(0);
 

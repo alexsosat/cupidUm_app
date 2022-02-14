@@ -9,6 +9,6 @@ class CheckFirstRun {
   }
 
   static void assignFirstRoute() {
-    AppPages.initial = isFirstRun ? Routes.intro : Routes.login;
+    AppPages.initial = isFirstRun ? Routes.presentation : Routes.login;
   }
 }

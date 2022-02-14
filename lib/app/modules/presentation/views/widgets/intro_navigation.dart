@@ -1,9 +1,9 @@
-import 'package:cupidum_app/app/modules/intro/controllers/intro_controller.dart';
-import 'package:cupidum_app/app/modules/intro/utils/button_color.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../controllers/presentation_controller.dart';
+import '../../utils/button_color.dart';
 import 'elevated_icon.dart';
 
 /// The bottom navigation of the screen
@@ -12,7 +12,7 @@ class IntroNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetX<IntroController>(builder: (controller) {
+    return GetX<PresentationController>(builder: (controller) {
       return Align(
         alignment: Alignment.bottomCenter,
         child: Padding(

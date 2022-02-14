@@ -1,8 +1,8 @@
-import 'package:cupidum_app/app/modules/intro/bindings/intro_binding.dart';
-import 'package:get/get.dart';
+import 'package:get/get_navigation/src/routes/get_route.dart';
 
-import '../modules/intro/views/intro_view.dart';
-import '../modules/login/views/login.dart';
+import '../modules/intro/modules/login/views/login.dart';
+import '../modules/presentation/bindings/presentation_binding.dart';
+import '../modules/presentation/views/intro_view.dart';
 
 part 'app_routes.dart';
 
@@ -10,13 +10,13 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static String initial = Routes.intro;
+  static String initial = Routes.presentation;
 
   static final routes = [
     GetPage(
-      name: _Paths.intro,
-      page: () => const IntroView(),
-      binding: IntroBinding(),
+      name: _Paths.presentation,
+      page: () => const PresentationView(),
+      binding: PresentationBinding(),
     ),
     GetPage(
       name: _Paths.login,
