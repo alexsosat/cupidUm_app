@@ -20,14 +20,14 @@ class BackgroundGradientTitle extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(height: kToolbarHeight + 50),
+          const SizedBox(height: kToolbarHeight + 25),
           Text(
             "CUPIDUM",
             style: Theme.of(context).textTheme.headline1!.copyWith(
                   fontWeight: FontWeight.w900,
                 ),
           ),
-          const SizedBox(height: 25),
+          const SizedBox(height: 15),
           Text(
             "‘’La pandemia nos separó\nCUPIDUM nos unió’’",
             textAlign: TextAlign.center,

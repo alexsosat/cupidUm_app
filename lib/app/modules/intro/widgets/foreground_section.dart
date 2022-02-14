@@ -8,6 +8,7 @@ class ForeGroundSection extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final String submitButtonText;
   final bool showRecoverPassword;
+
   const ForeGroundSection({
     Key? key,
     required this.title,
@@ -20,11 +21,15 @@ class ForeGroundSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final deviceHeight = MediaQuery.of(context).size.height;
+    print(deviceHeight * 0.05);
+
     return Align(
       alignment: Alignment.bottomCenter,
       child: SingleChildScrollView(
         child: Container(
           width: double.infinity,
+          height: deviceHeight * 2 / 3,
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -51,31 +56,35 @@ class ForeGroundSection extends StatelessWidget {
                     subtitle,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 50.0),
-                  child: form,
-                ),
-                PillButton(
-                  child: Text(submitButtonText),
-                  onPressed: () {
-                    formKey.currentState!.validate();
-                  },
-                ),
-                if (showRecoverPassword)
-                  Align(
-                    alignment: Alignment.center,
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        primary: Colors.grey,
-                        textStyle: const TextStyle(fontSize: 13),
+                form,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      PillButton(
+                        child: Text(submitButtonText),
+                        onPressed: () {
+                          formKey.currentState!.validate();
+                        },
                       ),
-                      onPressed: () {},
-                      child: const Text(
-                        "Restablecer Contraseña",
-                      ),
-                    ),
+                      if (showRecoverPassword)
+                        Align(
+                          alignment: Alignment.center,
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              primary: Colors.grey,
+                              textStyle: const TextStyle(fontSize: 13),
+                            ),
+                            onPressed: () {},
+                            child: const Text(
+                              "Restablecer Contraseña",
+                            ),
+                          ),
+                        ),
+                    ],
                   ),
-                const SizedBox(height: 55),
+                ),
               ],
             ),
           ),
