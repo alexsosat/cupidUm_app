@@ -1,5 +1,7 @@
+import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:cupidum_app/globals/pill_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 class IntroButtons extends StatelessWidget {
   const IntroButtons({Key? key}) : super(key: key);
@@ -11,11 +13,11 @@ class IntroButtons extends StatelessWidget {
       children: [
         PillButton(
           child: const Text("INICIAR SESIÓN"),
-          onPressed: () => print("Inicio"),
+          onPressed: () => Get.toNamed(Routes.login),
         ),
         PillButton(
           child: const Text("REGISTRATE"),
-          onPressed: () => print("Registrate"),
+          onPressed: () => Get.toNamed(Routes.register),
           color: Theme.of(context).colorScheme.secondary,
         ),
       ],

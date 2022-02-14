@@ -1,3 +1,4 @@
+import 'package:cupidum_app/app/modules/intro/bindings/authentication_binding.dart';
 import 'package:cupidum_app/utils/first_run_util.dart';
 import 'package:cupidum_app/constants/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Cupidum',
+
+      //Inital Binding
+      initialBinding: AuthenticationBinding(),
 
       //Routing
       initialRoute: AppPages.initial,

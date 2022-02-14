@@ -1,8 +1,11 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
+import '../modules/intro/middlewares/is_user_logged_in.dart';
+import '../modules/intro/modules/login/views/login_view.dart';
+import '../modules/intro/modules/register/views/register_view.dart';
 import '../modules/intro/views/intro_view.dart';
 import '../modules/presentation/bindings/presentation_binding.dart';
-import '../modules/presentation/views/intro_view.dart';
+import '../modules/presentation/views/presentation_view.dart';
 
 part 'app_routes.dart';
 
@@ -21,6 +24,15 @@ class AppPages {
     GetPage(
       name: _Paths.intro,
       page: () => const IntroView(),
+      middlewares: [IsUserLoggedIn()],
+    ),
+    GetPage(
+      name: _Paths.login,
+      page: () => const LoginView(),
+    ),
+    GetPage(
+      name: _Paths.register,
+      page: () => const RegisterView(),
     ),
   ];
 }

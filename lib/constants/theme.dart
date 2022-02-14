@@ -21,6 +21,16 @@ final ThemeData lightTheme = ThemeData(
         fontWeight: FontWeight.bold,
         fontSize: 45,
       ),
+      headline2: Get.textTheme.headline2!.copyWith(
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        fontSize: 34,
+      ),
+      headline3: Get.textTheme.headline3!.copyWith(
+        color: Colors.black,
+        fontWeight: FontWeight.w800,
+        fontSize: 24,
+      ),
       button: Get.textTheme.button!.copyWith(
         color: Colors.white,
         fontWeight: FontWeight.bold,
