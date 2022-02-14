@@ -11,6 +11,7 @@ final ThemeData lightTheme = ThemeData(
     secondary: HexColor.fromHex("481380"),
   ),
   hintColor: Colors.grey,
+  backgroundColor: Colors.white,
 
   // Define the default font family.
   textTheme: GoogleFonts.mulishTextTheme(
@@ -19,6 +20,11 @@ final ThemeData lightTheme = ThemeData(
         color: Colors.white,
         fontWeight: FontWeight.bold,
         fontSize: 45,
+      ),
+      button: Get.textTheme.button!.copyWith(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
       ),
     ),
   ),

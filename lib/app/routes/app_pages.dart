@@ -1,6 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
-import '../modules/intro/modules/login/views/login.dart';
+import '../modules/intro/views/intro_view.dart';
 import '../modules/presentation/bindings/presentation_binding.dart';
 import '../modules/presentation/views/intro_view.dart';
 
@@ -19,8 +19,8 @@ class AppPages {
       binding: PresentationBinding(),
     ),
     GetPage(
-      name: _Paths.login,
-      page: () => const LoginView(),
+      name: _Paths.intro,
+      page: () => const IntroView(),
     ),
   ];
 }

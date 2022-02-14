@@ -16,7 +16,7 @@ class PresentationController extends GetxController {
   /// In case is the final view sends the user to the login screen
   void nextView() {
     if (pageController.page == pagesCount - 1) {
-      Get.toNamed(Routes.login);
+      Get.toNamed(Routes.intro);
     }
     pageController.nextPage(
       duration: const Duration(seconds: 1),
