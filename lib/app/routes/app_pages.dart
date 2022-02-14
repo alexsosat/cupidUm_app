@@ -28,11 +28,11 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.login,
-      page: () => const LoginView(),
+      page: () => LoginView(),
     ),
     GetPage(
       name: _Paths.register,
-      page: () => const RegisterView(),
+      page: () => RegisterView(),
     ),
   ];
 }

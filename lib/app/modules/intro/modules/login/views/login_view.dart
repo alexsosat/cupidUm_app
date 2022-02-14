@@ -5,7 +5,8 @@ import '../../../widgets/foreground_section.dart';
 import 'widgets/login_form.dart';
 
 class LoginView extends StatelessWidget {
-  const LoginView({Key? key}) : super(key: key);
+  final _formKey = GlobalKey<FormState>(debugLabel: '_LoginFormState');
+  LoginView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,12 @@ class LoginView extends StatelessWidget {
           ForeGroundSection(
             title: "INICIAR SESIÓN",
             subtitle: "No tengo cuenta",
-            form: LoginForm(),
+            formKey: _formKey,
+            submitButtonText: "INICIAR",
+            showRecoverPassword: true,
+            form: LoginForm(
+              formKey: _formKey,
+            ),
           ),
         ],
       ),
