@@ -1,4 +1,3 @@
-
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
@@ -48,7 +47,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.home,
-      page: () => HomeView(),
+      page: () => const HomeView(),
     ),
   ];
 }
