@@ -1,4 +1,6 @@
-
+import 'package:cupidum_app/app/modules/home/views/home_view.dart';
+import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/create_user_controller.dart';
+import 'package:cupidum_app/app/modules/intro/modules/create_account/views/main_info_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
@@ -49,6 +51,11 @@ class AppPages {
     GetPage(
       name: _Paths.home,
       page: () => HomeView(),
+    ),
+    GetPage(
+      name: _Paths.register_mainInfo,
+      page: () => MainInfoView(),
+      binding: CreateUserBinding(),
     ),
   ];
 }
