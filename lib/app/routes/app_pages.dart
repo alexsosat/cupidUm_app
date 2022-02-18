@@ -1,5 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
+import '../modules/home/views/home_view.dart';
 import '../modules/intro/middlewares/is_user_logged_in.dart';
 import '../modules/intro/modules/confirm/views/confirm_view.dart';
 import '../modules/intro/modules/login/bindings/login_binding.dart';
@@ -42,6 +43,10 @@ class AppPages {
     GetPage(
       name: _Paths.confirm,
       page: () => ConfirmView(),
+    ),
+    GetPage(
+      name: _Paths.home,
+        page: () => HomeView(),
     ),
   ];
 }

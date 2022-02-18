@@ -13,10 +13,14 @@ class RegisterController extends GetxController {
 
   void register() async {
     try {
-      await _auth.createUserWithEmailAndPassword(
+        await _auth.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
+      User? user = FirebaseAuth.instance.currentUser;
+
+
+      await user?.sendEmailVerification();
 
       Get.offAndToNamed(Routes.confirm);
     } catch (e) {

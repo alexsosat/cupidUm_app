@@ -1,3 +1,4 @@
+import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -9,6 +10,12 @@ class AuthenticationController extends GetxController {
   bool get isUserLoggedIn {
     _firebaseUser = _auth.currentUser;
     return _firebaseUser != null;
+  }
+
+  bool get isUserConfirmed {
+    print(_firebaseUser);
+    print(_firebaseUser!.emailVerified);
+    return  _firebaseUser!.emailVerified;
   }
 
   String? get userUID => _firebaseUser?.uid;
@@ -28,6 +35,7 @@ class AuthenticationController extends GetxController {
   void signOut() async {
     try {
       await _auth.signOut();
+      Get.offAllNamed(Routes.intro);
     } catch (e) {
       Get.snackbar(
         "Error",

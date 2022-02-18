@@ -1,4 +1,8 @@
+import 'package:cupidum_app/app/modules/intro/controllers/authentication_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../../globals/pill_button.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -7,7 +11,12 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Home View"),
+        child: PillButton(
+          child: Text("Sign out"),
+          onPressed: () {
+            Get.find<AuthenticationController>().signOut();
+          },
+        )
       ),
     );
   }
