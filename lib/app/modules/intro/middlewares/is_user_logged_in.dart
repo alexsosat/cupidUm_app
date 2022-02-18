@@ -8,10 +8,8 @@ class IsUserLoggedIn extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     bool authenticated = Get.find<AuthenticationController>().isUserLoggedIn;
-    if(authenticated){
-      print("a");
-      bool confirmed =  Get.find<AuthenticationController>().isUserConfirmed;
-      print(confirmed);
+    if (authenticated) {
+      bool confirmed = Get.find<AuthenticationController>().isUserConfirmed;
       return confirmed ? const RouteSettings(name: Routes.home) : null;
     }
     return null;

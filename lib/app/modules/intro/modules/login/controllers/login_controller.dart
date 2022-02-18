@@ -15,9 +15,14 @@ class LoginController extends GetxController {
         email: emailController.text,
         password: passwordController.text,
       );
+
       await _auth.currentUser?.reload();
 
-      Get.offAllNamed(Routes.home);
+      if (_auth.currentUser!.emailVerified) {
+        Get.offAllNamed(Routes.home);
+      } else {
+        Get.offAllNamed(Routes.confirm);
+      }
     } catch (e) {
       Get.snackbar(
         "Error",

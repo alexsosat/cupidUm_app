@@ -12,11 +12,11 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: PillButton(
-          child: Text("Sign out"),
+          child: const Text("Sign out"),
           onPressed: () {
             Get.find<AuthenticationController>().signOut();
           },
-        )
+        ),
       ),
     );
   }

@@ -3,10 +3,9 @@ import 'package:cupidum_app/globals/pill_button.dart';
 import 'package:cupidum_app/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class ConfirmView extends StatelessWidget {
-  ConfirmView({Key? key}) : super(key: key);
+  const ConfirmView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
