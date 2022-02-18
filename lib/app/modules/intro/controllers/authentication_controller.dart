@@ -13,8 +13,6 @@ class AuthenticationController extends GetxController {
   }
 
   bool get isUserConfirmed {
-    print(_firebaseUser);
-    print(_firebaseUser!.emailVerified);
     return  _firebaseUser!.emailVerified;
   }
 

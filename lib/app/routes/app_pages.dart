@@ -1,4 +1,6 @@
+
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
 import '../modules/home/views/home_view.dart';
 import '../modules/intro/middlewares/is_user_logged_in.dart';
@@ -46,7 +48,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.home,
-        page: () => HomeView(),
+      page: () => HomeView(),
     ),
   ];
 }
