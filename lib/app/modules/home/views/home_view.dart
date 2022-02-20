@@ -22,7 +22,7 @@ class HomeView extends StatelessWidget {
             ),
             PillButton(
               child: const Text("Test"),
-              onPressed: () => Get.toNamed(Routes.register_mainInfo),
+              onPressed: () => Get.toNamed(Routes.register_createUser),
             ),
           ],
         ),

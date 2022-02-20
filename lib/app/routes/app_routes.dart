@@ -10,7 +10,7 @@ abstract class Routes {
   static const login = _Paths.login;
   static const register = _Paths.register;
   static const confirm = _Paths.confirm;
-  static const register_mainInfo = _Paths.register_mainInfo;
+  static const register_createUser = _Paths.register_createUser;
   static const home = _Paths.home;
 }
 
@@ -20,6 +20,6 @@ abstract class _Paths {
   static const login = '/login';
   static const register = '/register';
   static const confirm = '/confirm-user';
-  static const register_mainInfo = '/register/main-info';
+  static const register_createUser = '/register/create-user';
   static const home = '/home';
 }

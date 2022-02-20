@@ -38,58 +38,46 @@ class ForeGroundSection extends StatelessWidget {
               topLeft: Radius.circular(30.0),
             ),
           ),
-          child: Padding(
+          child: ListView(
             padding: const EdgeInsets.all(35.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: Theme.of(context).textTheme.headline3,
+            children: [
+              Text(
+                title,
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              TextButton(
+                style: TextButton.styleFrom(
+                    primary: Colors.grey, padding: const EdgeInsets.all(0)),
+                onPressed: () {},
+                child: Text(
+                  subtitle,
                 ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                      primary: Colors.grey, padding: const EdgeInsets.all(0)),
-                  onPressed: () {},
-                  child: Text(
-                    subtitle,
+              ),
+              form,
+              SizedBox(height: deviceHeight * 0.05),
+              PillButton(
+                child: Text(submitButtonText),
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    onSubmit();
+                  }
+                },
+              ),
+              if (showRecoverPassword)
+                Align(
+                  alignment: Alignment.center,
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      primary: Colors.grey,
+                      textStyle: const TextStyle(fontSize: 13),
+                    ),
+                    onPressed: () {},
+                    child: const Text(
+                      "Restablecer Contraseña",
+                    ),
                   ),
                 ),
-                form,
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      PillButton(
-                        child: Text(submitButtonText),
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            onSubmit();
-                          }
-                        },
-                      ),
-                      if (showRecoverPassword)
-                        Align(
-                          alignment: Alignment.center,
-                          child: TextButton(
-                            style: TextButton.styleFrom(
-                              primary: Colors.grey,
-                              textStyle: const TextStyle(fontSize: 13),
-                            ),
-                            onPressed: () {},
-                            child: const Text(
-                              "Restablecer Contraseña",
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            ],
           ),
         ),
       ),
