@@ -5,11 +5,13 @@ class RoundOutlinedTextField extends StatelessWidget {
   final TextEditingController controller;
   final String labelText;
   final String? hintText;
+  final TextInputAction? inputAction;
   const RoundOutlinedTextField({
     Key? key,
     required this.controller,
     required this.labelText,
     this.hintText,
+    this.inputAction = TextInputAction.next,
   }) : super(key: key);
 
   @override
@@ -22,6 +24,7 @@ class RoundOutlinedTextField extends StatelessWidget {
             return "Favor de llenar este campo";
           }
         },
+        textInputAction: inputAction,
         decoration: InputDecoration(
           labelText: labelText,
           hintText: hintText,

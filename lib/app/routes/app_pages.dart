@@ -1,3 +1,4 @@
+import 'package:cupidum_app/app/modules/intro/modules/create_account/views/create_user_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../modules/home/views/home_view.dart';
@@ -52,7 +53,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.register_createUser,
-      page: () => MainInfoView(),
+      page: () => const CreateUserView(),
       binding: CreateUserBinding(),
     ),
   ];
