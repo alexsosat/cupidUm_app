@@ -1,11 +1,12 @@
 import 'package:cupidum_app/globals/overlays/dialog_overlay.dart';
+import 'package:cupidum_app/globals/overlays/snackbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CreateUserController extends GetxController {
   final PageController pageController = PageController();
-  final int currentIndex = 0;
+  int currentIndex = 0;
 
   final ImagePicker _picker = ImagePicker();
   Rx<XFile?> userImage = Rx<XFile?>(null);
@@ -13,17 +14,27 @@ class CreateUserController extends GetxController {
   DateTime? bornDate;
   String? name;
 
-  saveMainInfo(String name, String lastName) {
-    name = "$name $lastName";
-
-    if (bornDate != null) {
-      pageController.animateToPage(
-        1,
-        duration: const Duration(seconds: 1),
+  _nextPage() => pageController.animateToPage(
+        ++currentIndex,
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeIn,
       );
+
+  previousPage() => pageController.animateToPage(
+        --currentIndex,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeIn,
+      );
+
+  saveMainInfo(String name, String lastName) {
+    name = "$name $lastName";
+    if (bornDate != null) {
+      _nextPage();
     } else {
-      openDialogWindow(title: "Favor de ingresar una fecha", message: "");
+      snackbarMessage(
+        "Favor de ingresar una fecha",
+        "Creo que olvidaste colocar tu fecha de nacimiento",
+      );
     }
   }
 

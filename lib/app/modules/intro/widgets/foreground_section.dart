@@ -1,3 +1,4 @@
+import 'package:cupidum_app/globals/lists/flex_list_view.dart';
 import 'package:cupidum_app/globals/pill_button.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +39,8 @@ class ForeGroundSection extends StatelessWidget {
               topLeft: Radius.circular(30.0),
             ),
           ),
-          child: ListView(
+          child: FlexListView(
+            scrollPhysics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.all(35.0),
             children: [
               Text(
@@ -55,28 +57,36 @@ class ForeGroundSection extends StatelessWidget {
               ),
               form,
               SizedBox(height: deviceHeight * 0.05),
-              PillButton(
-                child: Text(submitButtonText),
-                onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    onSubmit();
-                  }
-                },
-              ),
-              if (showRecoverPassword)
-                Align(
-                  alignment: Alignment.center,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      primary: Colors.grey,
-                      textStyle: const TextStyle(fontSize: 13),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    PillButton(
+                      child: Text(submitButtonText),
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          onSubmit();
+                        }
+                      },
                     ),
-                    onPressed: () {},
-                    child: const Text(
-                      "Restablecer Contraseña",
-                    ),
-                  ),
+                    if (showRecoverPassword)
+                      Align(
+                        alignment: Alignment.center,
+                        child: TextButton(
+                          style: TextButton.styleFrom(
+                            primary: Colors.grey,
+                            textStyle: const TextStyle(fontSize: 13),
+                          ),
+                          onPressed: () {},
+                          child: const Text(
+                            "Restablecer Contraseña",
+                          ),
+                        ),
+                      ),
+                  ],
                 ),
+              ),
             ],
           ),
         ),

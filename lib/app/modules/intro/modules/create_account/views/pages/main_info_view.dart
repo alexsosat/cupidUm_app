@@ -3,6 +3,7 @@ import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widge
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widgets/date_picker_button.dart';
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widgets/image_picker.dart';
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widgets/round_outlined_textfields.dart';
+import 'package:cupidum_app/globals/lists/flex_list_view.dart';
 import 'package:cupidum_app/globals/pill_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,20 +14,31 @@ class MainInfoView extends StatelessWidget {
   final _formKey = GlobalKey<FormState>(debugLabel: '_MainInfoFormState');
   MainInfoView({Key? key}) : super(key: key);
 
+  void onNextPressed() {
+    if (_formKey.currentState!.validate()) {
+      Get.find<CreateUserController>().saveMainInfo(
+        _nameController.text,
+        _lastNameController.text,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size(double.infinity, kToolbarHeight),
-        child: CreateUserAppBar(),
+      appBar: PreferredSize(
+        preferredSize: const Size(double.infinity, kToolbarHeight),
+        child: CreateUserAppBar(
+          onNext: () => onNextPressed(),
+        ),
       ),
       body: Form(
         key: _formKey,
-        child: ListView(
-          physics: const BouncingScrollPhysics(),
+        child: FlexListView(
+          scrollPhysics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(
-            horizontal: 25,
             vertical: 20,
+            horizontal: 25,
           ),
           children: [
             Text(
@@ -46,21 +58,20 @@ class MainInfoView extends StatelessWidget {
               controller: _lastNameController,
               labelText: "Apellidos",
               hintText: "Ej. Ramon Gonzalez",
+              inputAction: TextInputAction.done,
             ),
             const DatePickerButton(),
-            Padding(
-              padding: const EdgeInsets.only(top: 35.0),
-              child: PillButton(
-                  child: const Text("GUARDAR"),
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      Get.find<CreateUserController>().saveMainInfo(
-                        _nameController.text,
-                        _lastNameController.text,
-                      );
-                    }
-                  }),
-            )
+            Expanded(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 35.0),
+                  child: PillButton(
+                    child: const Text("GUARDAR"),
+                    onPressed: () => onNextPressed(),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
