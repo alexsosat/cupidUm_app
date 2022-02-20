@@ -13,12 +13,11 @@ class RegisterController extends GetxController {
 
   void register() async {
     try {
-        await _auth.createUserWithEmailAndPassword(
+      await _auth.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
       User? user = FirebaseAuth.instance.currentUser;
-
 
       await user?.sendEmailVerification();
 
@@ -30,5 +29,13 @@ class RegisterController extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
       );
     }
+  }
+
+  @override
+  void onClose() {
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.onClose();
   }
 }

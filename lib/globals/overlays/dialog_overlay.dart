@@ -5,11 +5,12 @@ import 'package:get/get.dart';
 /// inside the application.
 ///
 /// The actions of the button are set in the [onCancel] and [onConfirm] parameters
-void openDialogWindow(
-    {required String title,
-    required String message,
-    Function? onCancel,
-    Function? onConfirm}) {
+void openDialogWindow({
+  required String title,
+  required String message,
+  Function()? onCancel,
+  Function()? onConfirm,
+}) {
   Get.dialog(
     AlertDialog(
       title: Text(title, textAlign: TextAlign.center),
@@ -24,7 +25,7 @@ void openDialogWindow(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               OutlinedButton(
-                onPressed: onCancel as void Function()?,
+                onPressed: onCancel ?? () => Get.back(),
                 child: Text(
                   "Cancelar",
                   style: TextStyle(
@@ -34,9 +35,9 @@ void openDialogWindow(
               ),
               OutlinedButton(
                 style: OutlinedButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
+                  backgroundColor: Get.theme.colorScheme.primary,
                 ),
-                onPressed: onConfirm as void Function()?,
+                onPressed: onConfirm ?? () => Get.back(),
                 child: const Text(
                   "Confirmar",
                   style: TextStyle(
@@ -49,7 +50,7 @@ void openDialogWindow(
         ],
       ),
     ),
-    barrierDismissible: false,
+    barrierDismissible: true,
   );
 }
 

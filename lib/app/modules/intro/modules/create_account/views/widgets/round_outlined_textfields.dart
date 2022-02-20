@@ -16,7 +16,12 @@ class RoundOutlinedTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: TextField(
+      child: TextFormField(
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return "Favor de llenar este campo";
+          }
+        },
         decoration: InputDecoration(
           labelText: labelText,
           hintText: hintText,
