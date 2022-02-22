@@ -1,4 +1,5 @@
 import 'package:cupidum_app/app/models/user/gender.dart';
+import 'package:cupidum_app/app/models/user/hobby.dart';
 import 'package:cupidum_app/app/models/user/objective.dart';
 import 'package:cupidum_app/globals/overlays/snackbar.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,6 +17,7 @@ class CreateUserController extends GetxController {
   String? name;
   Objective? objective;
   Gender? gender;
+  List<Hobby> hobbies = List.empty(growable: true);
 
   nextPage() => pageController.animateToPage(
         ++currentIndex,
@@ -48,6 +50,17 @@ class CreateUserController extends GetxController {
       snackbarMessage(
         "Campo vacío",
         "Favor de elegir antes un campo antes de continuar",
+      );
+    }
+  }
+
+  saveHobbiesInfo() {
+    if (hobbies.length >= 3) {
+      // nextPage();
+    } else {
+      snackbarMessage(
+        "Favor de seleccionar al menos cinco Hobbies",
+        "Necesitamos saber tus gustos para poder buscar personas con tus mismos gustos",
       );
     }
   }
