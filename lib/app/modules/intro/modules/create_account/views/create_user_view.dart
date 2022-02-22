@@ -17,9 +17,9 @@ class CreateUserView extends GetView<CreateUserController> {
         controller: controller.pageController,
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          // MainInfoView(),
-          // const ObjectiveInfoView(),
-          // const GenderInfoView(),
+          MainInfoView(),
+          const ObjectiveInfoView(),
+          const GenderInfoView(),
           const HobbiesInfoView(),
         ],
       ),
