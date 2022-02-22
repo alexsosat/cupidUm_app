@@ -5,7 +5,7 @@ import '../modules/home/views/home_view.dart';
 import '../modules/intro/middlewares/is_user_logged_in.dart';
 import '../modules/intro/modules/confirm/views/confirm_view.dart';
 import '../modules/intro/modules/create_account/bindings/create_user_bindings.dart';
-import '../modules/intro/modules/create_account/views/pages/main_info_view.dart';
+
 import '../modules/intro/modules/login/bindings/login_binding.dart';
 import '../modules/intro/modules/login/views/login_view.dart';
 import '../modules/intro/modules/register/bindings/register_bindings.dart';

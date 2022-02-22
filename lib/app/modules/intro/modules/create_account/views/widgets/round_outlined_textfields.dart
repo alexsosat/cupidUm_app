@@ -23,6 +23,7 @@ class RoundOutlinedTextField extends StatelessWidget {
           if (value == null || value.isEmpty) {
             return "Favor de llenar este campo";
           }
+          return null;
         },
         textInputAction: inputAction,
         decoration: InputDecoration(

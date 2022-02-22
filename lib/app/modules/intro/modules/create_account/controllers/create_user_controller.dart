@@ -1,4 +1,5 @@
-import 'package:cupidum_app/globals/overlays/dialog_overlay.dart';
+import 'package:cupidum_app/app/models/user/gender.dart';
+import 'package:cupidum_app/app/models/user/objective.dart';
 import 'package:cupidum_app/globals/overlays/snackbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -13,8 +14,10 @@ class CreateUserController extends GetxController {
 
   DateTime? bornDate;
   String? name;
+  Objective? objective;
+  Gender? gender;
 
-  _nextPage() => pageController.animateToPage(
+  nextPage() => pageController.animateToPage(
         ++currentIndex,
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeIn,
@@ -29,11 +32,22 @@ class CreateUserController extends GetxController {
   saveMainInfo(String name, String lastName) {
     name = "$name $lastName";
     if (bornDate != null) {
-      _nextPage();
+      nextPage();
     } else {
       snackbarMessage(
         "Favor de ingresar una fecha",
         "Creo que olvidaste colocar tu fecha de nacimiento",
+      );
+    }
+  }
+
+  saveObjectiveInfo() {
+    if (objective != null) {
+      nextPage();
+    } else {
+      snackbarMessage(
+        "Campo vacío",
+        "Favor de elegir antes un campo antes de continuar",
       );
     }
   }

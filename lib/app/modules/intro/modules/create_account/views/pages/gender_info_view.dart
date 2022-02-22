@@ -1,4 +1,4 @@
-import 'package:cupidum_app/app/models/user/objective.dart';
+import 'package:cupidum_app/app/models/user/gender.dart';
 import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/create_user_controller.dart';
 import 'package:cupidum_app/globals/buttons/select_button_list/selectable_button_list.dart';
 import 'package:cupidum_app/globals/buttons/select_button_list/selectable_item.dart';
@@ -7,8 +7,8 @@ import 'package:get/get.dart';
 
 import '../widgets/create_appbar.dart';
 
-class ObjectiveInfoView extends GetView<CreateUserController> {
-  const ObjectiveInfoView({Key? key}) : super(key: key);
+class GenderInfoView extends GetView<CreateUserController> {
+  const GenderInfoView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,22 +28,26 @@ class ObjectiveInfoView extends GetView<CreateUserController> {
         ),
         children: [
           Text(
-            "¿Qué buscas?",
+            "Género",
             style: Theme.of(context).textTheme.headline2,
           ),
           const SizedBox(height: 35),
           SelectableButtonList(
             options: [
-              SelectableItem<Objective>(
-                title: "Una cita",
-                value: Objective.relationship,
+              SelectableItem<Gender>(
+                title: "Mujer",
+                value: Gender.female,
               ),
-              SelectableItem<Objective>(
-                title: "Solo amigos",
-                value: Objective.friendship,
+              SelectableItem<Gender>(
+                title: "Hombre",
+                value: Gender.male,
+              ),
+              SelectableItem<Gender>(
+                title: "Prefiero no decir",
+                value: Gender.other,
               ),
             ],
-            onChange: (value) => controller.objective = value as Objective,
+            onChange: (value) => controller.gender = value as Gender,
           ),
         ],
       ),

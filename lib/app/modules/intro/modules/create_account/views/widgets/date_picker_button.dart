@@ -3,7 +3,6 @@ import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widge
 import 'package:cupidum_app/globals/overlays/bottomsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
-import 'package:get/route_manager.dart';
 import 'package:intl/intl.dart';
 
 class DatePickerButton extends StatefulWidget {
