@@ -16,7 +16,7 @@ class HobbiesInfoView extends GetView<CreateUserController> {
         preferredSize: const Size(double.infinity, kToolbarHeight),
         child: CreateUserAppBar(
           showLeading: true,
-          onNext: () {},
+          onNext: () => controller.saveHobbiesInfo(),
         ),
       ),
       body: FlexListView(
