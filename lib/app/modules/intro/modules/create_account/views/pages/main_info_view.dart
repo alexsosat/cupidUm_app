@@ -4,7 +4,7 @@ import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widge
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widgets/image_picker.dart';
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widgets/round_outlined_textfields.dart';
 import 'package:cupidum_app/globals/lists/flex_list_view.dart';
-import 'package:cupidum_app/globals/pill_button.dart';
+import 'package:cupidum_app/globals/buttons/pill_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

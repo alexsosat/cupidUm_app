@@ -1,5 +1,5 @@
 import 'package:cupidum_app/globals/lists/flex_list_view.dart';
-import 'package:cupidum_app/globals/pill_button.dart';
+import 'package:cupidum_app/globals/buttons/pill_button.dart';
 import 'package:flutter/material.dart';
 
 class ForeGroundSection extends StatelessWidget {

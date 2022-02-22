@@ -8,10 +8,10 @@ import 'package:get_storage/get_storage.dart';
 import 'package:ummobile_custom_http/ummobile_custom_http.dart';
 
 class Strapi {
-  GetStorage getStorage = GetStorage('StrapiKeys');
+  static GetStorage getStorage = GetStorage('StrapiKeys');
   final _http = UMMobileCustomHttp(baseUrl: "${getWebUrl()}/auth/local");
 
-  String? get jwtKey => getStorage.read('jwtKey');
+  static String? get jwtKey => getStorage.read('jwtKey');
 
   Future strapiLogin() async {
     try {

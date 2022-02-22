@@ -4,6 +4,9 @@ import 'package:cupidum_app/app/modules/intro/modules/create_account/views/pages
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'pages/gender_info_view.dart';
+import 'pages/hobbies_info_view.dart';
+
 class CreateUserView extends GetView<CreateUserController> {
   const CreateUserView({Key? key}) : super(key: key);
 
@@ -14,8 +17,10 @@ class CreateUserView extends GetView<CreateUserController> {
         controller: controller.pageController,
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          MainInfoView(),
-          const ObjectiveInfoView(),
+          // MainInfoView(),
+          // const ObjectiveInfoView(),
+          // const GenderInfoView(),
+          const HobbiesInfoView(),
         ],
       ),
     );
