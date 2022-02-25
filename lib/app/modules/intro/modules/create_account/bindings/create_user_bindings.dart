@@ -2,6 +2,8 @@ import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers
 import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/hobby_select_controller.dart';
 import 'package:get/get.dart';
 
+import '../controllers/school_select_controller.dart';
+
 class CreateUserBinding implements Bindings {
   @override
   void dependencies() {
@@ -10,6 +12,10 @@ class CreateUserBinding implements Bindings {
     );
     Get.lazyPut<HobbySelectController>(
       () => HobbySelectController(),
+    );
+
+    Get.lazyPut<SchoolSelectController>(
+      () => SchoolSelectController(),
     );
   }
 }

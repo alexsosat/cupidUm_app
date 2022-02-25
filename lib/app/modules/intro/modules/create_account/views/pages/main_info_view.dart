@@ -53,6 +53,7 @@ class MainInfoView extends StatelessWidget {
               controller: _nameController,
               labelText: "Nombre",
               hintText: "Ej. Javier",
+              inputAction: TextInputAction.next,
             ),
             RoundOutlinedTextField(
               controller: _lastNameController,

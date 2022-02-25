@@ -6,12 +6,16 @@ class RoundOutlinedTextField extends StatelessWidget {
   final String labelText;
   final String? hintText;
   final TextInputAction? inputAction;
+  final TextInputType? inputType;
+  final int maxLines;
   const RoundOutlinedTextField({
     Key? key,
     required this.controller,
     required this.labelText,
+    this.maxLines = 1,
     this.hintText,
-    this.inputAction = TextInputAction.next,
+    this.inputAction,
+    this.inputType,
   }) : super(key: key);
 
   @override
@@ -26,6 +30,8 @@ class RoundOutlinedTextField extends StatelessWidget {
           return null;
         },
         textInputAction: inputAction,
+        keyboardType: inputType,
+        maxLines: maxLines,
         decoration: InputDecoration(
           labelText: labelText,
           hintText: hintText,
