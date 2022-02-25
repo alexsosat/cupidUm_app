@@ -10,11 +10,11 @@ class ConfirmHeader extends StatelessWidget {
     return Column(
       children: [
         Image.asset('assets/images/correo.png'),
-        SizedBox(height: 50.0),
+        const SizedBox(height: 50.0),
         Text("Verifica tu correo \n electrónico",
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headline3),
-        SizedBox(height: 20.0),
+        const SizedBox(height: 20.0),
         Text(
             "Hola, verifica tu cuenta para tener acceso a encontrar tu pareja ideal",
             textAlign: TextAlign.center,
