@@ -6,8 +6,6 @@ import 'package:get/get.dart';
 class SchoolSelectController extends ControllerTemplate<List<School>> {
   final SchoolProvider _provider = SchoolProvider();
 
-  School? selectedSchool;
-
   @override
   void onInit() {
     loadData();

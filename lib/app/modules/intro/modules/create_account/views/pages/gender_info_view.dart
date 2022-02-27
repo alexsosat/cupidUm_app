@@ -17,7 +17,7 @@ class GenderInfoView extends GetView<CreateUserController> {
         preferredSize: const Size(double.infinity, kToolbarHeight),
         child: CreateUserAppBar(
           showLeading: true,
-          onNext: () => controller.saveObjectiveInfo(),
+          onNext: () => controller.saveGenderInfo(),
         ),
       ),
       body: ListView(

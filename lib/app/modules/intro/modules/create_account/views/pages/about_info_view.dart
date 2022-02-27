@@ -1,4 +1,5 @@
 import 'package:cupidum_app/app/models/user/school.dart';
+import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/create_user_controller.dart';
 import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/school_select_controller.dart';
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widgets/create_appbar.dart';
 import 'package:cupidum_app/globals/buttons/dropdown/dropdown_button.dart';
@@ -19,7 +20,11 @@ class AboutInfoView extends GetView<SchoolSelectController> {
         preferredSize: const Size(double.infinity, kToolbarHeight),
         child: CreateUserAppBar(
           showLeading: true,
-          onNext: () {},
+          onNext: () {
+            //TODO: form condition
+            Get.find<CreateUserController>()
+                .saveAboutInfo(_descriptionController.text);
+          },
         ),
       ),
       body: controller.obx(
@@ -40,12 +45,14 @@ class AboutInfoView extends GetView<SchoolSelectController> {
               labelText: "Descripción",
               hintText: "Ej. Soy una persona amable",
               inputType: TextInputType.multiline,
+              inputAction: TextInputAction.done,
               maxLines: 7,
             ),
             const SizedBox(height: 35),
             DropDownButtonOutlined(
               hintText: "Escoge tu facultad",
-              onChange: (school) => controller.selectedSchool = school.value,
+              onChange: (school) =>
+                  Get.find<CreateUserController>().school = school.value,
               values: schools!
                   .map((school) => DropDownItem<School>(
                       title: school.acronym, value: school))
