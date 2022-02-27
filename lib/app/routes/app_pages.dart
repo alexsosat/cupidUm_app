@@ -1,7 +1,8 @@
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/create_user_view.dart';
+import 'package:cupidum_app/app/modules/tabs/bindings/navigation_bindings.dart';
+import 'package:cupidum_app/app/modules/tabs/views/tabs_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
-import '../modules/home/views/home_view.dart';
 import '../modules/intro/middlewares/is_user_logged_in.dart';
 import '../modules/intro/modules/confirm/views/confirm_view.dart';
 import '../modules/intro/modules/create_account/bindings/create_user_bindings.dart';
@@ -13,6 +14,7 @@ import '../modules/intro/modules/register/views/register_view.dart';
 import '../modules/intro/views/intro_view.dart';
 import '../modules/presentation/bindings/presentation_binding.dart';
 import '../modules/presentation/views/presentation_view.dart';
+import '../modules/tabs/modules/home/views/home_view.dart';
 
 part 'app_routes.dart';
 
@@ -48,8 +50,9 @@ class AppPages {
       page: () => const ConfirmView(),
     ),
     GetPage(
-      name: _Paths.home,
-      page: () => const HomeView(),
+      name: _Paths.main,
+      page: () => const TabsView(),
+      binding: TabsBinding(),
     ),
     GetPage(
       name: _Paths.register_createUser,

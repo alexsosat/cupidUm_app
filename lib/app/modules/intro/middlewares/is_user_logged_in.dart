@@ -10,7 +10,7 @@ class IsUserLoggedIn extends GetMiddleware {
     bool authenticated = Get.find<AuthenticationController>().isUserLoggedIn;
     if (authenticated) {
       bool confirmed = Get.find<AuthenticationController>().isUserConfirmed;
-      return confirmed ? const RouteSettings(name: Routes.home) : null;
+      return confirmed ? const RouteSettings(name: Routes.main) : null;
     }
     return null;
   }

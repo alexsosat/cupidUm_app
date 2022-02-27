@@ -107,7 +107,7 @@ class CreateUserController extends ControllerTemplate {
         httpCall: () => _provider.createUser(user),
         onSuccess: (value) {
           Get.back();
-          Get.toNamed(Routes.home);
+          Get.toNamed(Routes.main);
         },
         onCallError: (exception) {
           Get.back();

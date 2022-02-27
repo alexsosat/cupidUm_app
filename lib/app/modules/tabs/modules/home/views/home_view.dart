@@ -1,9 +1,8 @@
 import 'package:cupidum_app/app/modules/intro/controllers/authentication_controller.dart';
 import 'package:cupidum_app/app/routes/app_pages.dart';
+import 'package:cupidum_app/globals/buttons/pill_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../../globals/buttons/pill_button.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);

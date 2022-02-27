@@ -19,7 +19,7 @@ class LoginController extends GetxController {
       await _auth.currentUser?.reload();
 
       if (_auth.currentUser!.emailVerified) {
-        Get.offAllNamed(Routes.home);
+        Get.offAllNamed(Routes.main);
       } else {
         Get.offAllNamed(Routes.confirm);
       }

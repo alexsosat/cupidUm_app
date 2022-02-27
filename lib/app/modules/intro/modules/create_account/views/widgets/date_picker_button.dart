@@ -1,7 +1,6 @@
 import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/create_user_controller.dart';
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widgets/date_picker_bottomsheet.dart';
 import 'package:cupidum_app/globals/overlays/bottomsheet.dart';
-import 'package:cupidum_app/utils/age_calculator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
 import 'package:intl/intl.dart';
