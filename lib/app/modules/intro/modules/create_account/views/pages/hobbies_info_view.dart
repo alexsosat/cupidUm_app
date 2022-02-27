@@ -1,5 +1,6 @@
 import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/create_user_controller.dart';
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widgets/hobby_selection.dart';
+import 'package:cupidum_app/globals/buttons/pill_button.dart';
 import 'package:cupidum_app/globals/lists/flex_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,7 @@ class HobbiesInfoView extends GetView<CreateUserController> {
         ),
       ),
       body: FlexListView(
-        scrollPhysics: const BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(
           vertical: 20,
           horizontal: 25,
@@ -37,6 +38,12 @@ class HobbiesInfoView extends GetView<CreateUserController> {
           ),
           const SizedBox(height: 35),
           HobbySelection(),
+          const Expanded(child: SizedBox()),
+          PillButton(
+            child: const Text("GUARDAR"),
+            onPressed: () => controller.saveHobbiesInfo(),
+          ),
+          const SizedBox(height: 40),
         ],
       ),
     );

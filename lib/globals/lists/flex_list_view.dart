@@ -4,21 +4,21 @@ class FlexListView extends StatelessWidget {
   final List<Widget> children;
   final MainAxisAlignment mainAxisAlignment;
   final CrossAxisAlignment crossAxisAlignment;
-  final ScrollPhysics? scrollPhysics;
+  final ScrollPhysics? physics;
   final EdgeInsetsGeometry? padding;
   const FlexListView({
     Key? key,
     required this.children,
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.crossAxisAlignment = CrossAxisAlignment.start,
-    this.scrollPhysics,
+    this.physics,
     this.padding,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      physics: scrollPhysics,
+      physics: physics,
       slivers: [
         SliverFillRemaining(
           hasScrollBody: false,

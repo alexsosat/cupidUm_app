@@ -40,7 +40,7 @@ class ForeGroundSection extends StatelessWidget {
             ),
           ),
           child: FlexListView(
-            scrollPhysics: const BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.all(35.0),
             children: [
               Text(

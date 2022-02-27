@@ -37,6 +37,7 @@ class _DropDownButtonOutlinedState extends State<DropDownButtonOutlined> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,

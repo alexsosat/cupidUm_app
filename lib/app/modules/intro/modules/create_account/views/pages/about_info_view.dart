@@ -4,6 +4,8 @@ import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widgets/create_appbar.dart';
 import 'package:cupidum_app/globals/buttons/dropdown/dropdown_button.dart';
 import 'package:cupidum_app/globals/buttons/dropdown/dropdown_item.dart';
+import 'package:cupidum_app/globals/buttons/pill_button.dart';
+import 'package:cupidum_app/globals/lists/flex_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +30,7 @@ class AboutInfoView extends GetView<SchoolSelectController> {
         ),
       ),
       body: controller.obx(
-        (schools) => ListView(
+        (schools) => FlexListView(
           physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(
             vertical: 20,
@@ -58,6 +60,13 @@ class AboutInfoView extends GetView<SchoolSelectController> {
                       title: school.acronym, value: school))
                   .toList(),
             ),
+            const Expanded(child: SizedBox()),
+            PillButton(
+              child: const Text("GUARDAR"),
+              onPressed: () => Get.find<CreateUserController>()
+                  .saveAboutInfo(_descriptionController.text),
+            ),
+            const SizedBox(height: 40),
           ],
         ),
       ),

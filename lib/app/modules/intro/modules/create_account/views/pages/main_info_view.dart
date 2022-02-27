@@ -35,7 +35,7 @@ class MainInfoView extends StatelessWidget {
       body: Form(
         key: _formKey,
         child: FlexListView(
-          scrollPhysics: const BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(
             vertical: 20,
             horizontal: 25,
@@ -62,17 +62,12 @@ class MainInfoView extends StatelessWidget {
               inputAction: TextInputAction.done,
             ),
             const DatePickerButton(),
-            Expanded(
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 35.0),
-                  child: PillButton(
-                    child: const Text("GUARDAR"),
-                    onPressed: () => onNextPressed(),
-                  ),
-                ),
-              ),
+            const Expanded(child: SizedBox()),
+            PillButton(
+              child: const Text("GUARDAR"),
+              onPressed: () => onNextPressed(),
             ),
+            const SizedBox(height: 40),
           ],
         ),
       ),

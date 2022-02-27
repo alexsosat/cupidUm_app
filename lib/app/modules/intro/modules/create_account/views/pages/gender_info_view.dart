@@ -1,7 +1,9 @@
 import 'package:cupidum_app/app/models/user/gender.dart';
 import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/create_user_controller.dart';
+import 'package:cupidum_app/globals/buttons/pill_button.dart';
 import 'package:cupidum_app/globals/buttons/select_button_list/selectable_button_list.dart';
 import 'package:cupidum_app/globals/buttons/select_button_list/selectable_item.dart';
+import 'package:cupidum_app/globals/lists/flex_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +22,7 @@ class GenderInfoView extends GetView<CreateUserController> {
           onNext: () => controller.saveGenderInfo(),
         ),
       ),
-      body: ListView(
+      body: FlexListView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(
           vertical: 20,
@@ -49,6 +51,12 @@ class GenderInfoView extends GetView<CreateUserController> {
             ],
             onChange: (value) => controller.gender = value as Gender,
           ),
+          const Expanded(child: SizedBox()),
+          PillButton(
+            child: const Text("GUARDAR"),
+            onPressed: () => controller.saveGenderInfo(),
+          ),
+          const SizedBox(height: 40),
         ],
       ),
     );

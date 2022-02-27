@@ -1,7 +1,9 @@
 import 'package:cupidum_app/app/models/user/objective.dart';
 import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/create_user_controller.dart';
+import 'package:cupidum_app/globals/buttons/pill_button.dart';
 import 'package:cupidum_app/globals/buttons/select_button_list/selectable_button_list.dart';
 import 'package:cupidum_app/globals/buttons/select_button_list/selectable_item.dart';
+import 'package:cupidum_app/globals/lists/flex_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +22,7 @@ class ObjectiveInfoView extends GetView<CreateUserController> {
           onNext: () => controller.saveObjectiveInfo(),
         ),
       ),
-      body: ListView(
+      body: FlexListView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(
           vertical: 20,
@@ -45,6 +47,12 @@ class ObjectiveInfoView extends GetView<CreateUserController> {
             ],
             onChange: (value) => controller.objective = value as Objective,
           ),
+          const Expanded(child: SizedBox()),
+          PillButton(
+            child: const Text("GUARDAR"),
+            onPressed: () => controller.saveObjectiveInfo(),
+          ),
+          const SizedBox(height: 40),
         ],
       ),
     );
