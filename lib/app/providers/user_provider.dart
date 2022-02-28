@@ -9,7 +9,7 @@ class UserProvider {
   /// The path of the requests group.
   static const String path = '/cuentas';
 
-  String userUID = Get.find<AuthenticationController>().userUID!;
+  String? userUID = Get.find<AuthenticationController>().userUID;
 
   /// The API client.
   final UMMobileCustomHttp _http = UMMobileCustomHttp(
@@ -30,6 +30,14 @@ class UserProvider {
   Future<User> getUser() => _http.customGet<User>(
         path: "/$userUID",
         mapper: (json) => User.fromJson(json),
+        headers: {
+          "Authorization": "Bearer ${Strapi.jwtKey}",
+        },
+      );
+
+  Future<bool> checkIfUserExists() => _http.customGet<bool>(
+        path: "/$userUID/exist",
+        mapper: (response) => response as bool,
         headers: {
           "Authorization": "Bearer ${Strapi.jwtKey}",
         },

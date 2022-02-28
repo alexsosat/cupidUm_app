@@ -13,7 +13,11 @@ class AuthenticationController extends GetxController {
   }
 
   bool get isUserConfirmed {
-    return  _firebaseUser!.emailVerified;
+    return _firebaseUser!.emailVerified;
+  }
+
+  void setUser(User user) {
+    _firebaseUser = user;
   }
 
   String? get userUID => _firebaseUser?.uid;
@@ -28,6 +32,10 @@ class AuthenticationController extends GetxController {
 
   void logUserInApp() {
     _firebaseUser = _auth.currentUser;
+  }
+
+  void sendVerification() async {
+    await _firebaseUser!.sendEmailVerification();
   }
 
   void signOut() async {
