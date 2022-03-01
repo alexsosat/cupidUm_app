@@ -2,6 +2,7 @@ import 'package:cupidum_app/app/models/user/user.dart';
 import 'package:cupidum_app/app/modules/intro/controllers/authentication_controller.dart';
 import 'package:cupidum_app/environment/strapi_keys.dart';
 import 'package:cupidum_app/services/authentication/strapi_authentication.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:ummobile_custom_http/ummobile_custom_http.dart';
 
@@ -35,11 +36,13 @@ class UserProvider {
         },
       );
 
-  Future<bool> checkIfUserExists() => _http.customGet<bool>(
-        path: "/$userUID/exist",
-        mapper: (response) => response as bool,
-        headers: {
-          "Authorization": "Bearer ${Strapi.jwtKey}",
-        },
-      );
+  Future<bool> checkIfUserExists() {
+    return _http.customGet<bool>(
+      path: "/$userUID/exist",
+      mapper: (response) => response as bool,
+      headers: {
+        "Authorization": "Bearer ${Strapi.jwtKey}",
+      },
+    );
+  }
 }

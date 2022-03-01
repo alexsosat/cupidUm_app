@@ -1,15 +1,15 @@
 import 'dart:convert';
 
 class JwtModel {
-  String? jwt;
+  String jwt;
 
-  JwtModel({this.jwt});
+  JwtModel({required this.jwt});
 
   @override
   String toString() => 'JwtModel(jwt: $jwt)';
 
   factory JwtModel.fromMap(Map<String, dynamic> data) => JwtModel(
-        jwt: data['jwt'] as String?,
+        jwt: data['jwt'] as String,
       );
 
   /// `dart:convert`

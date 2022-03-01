@@ -23,6 +23,7 @@ class User {
     this.instagram,
     required this.school,
     required this.hobbies,
+    required this.image,
   });
 
   String uid;
@@ -38,6 +39,7 @@ class User {
   String? instagram;
   School school;
   List<Hobby> hobbies;
+  String image;
 
   static User userFromJson(String str) => User.fromJson(json.decode(str));
 
@@ -55,6 +57,7 @@ class User {
         weight: json["peso"],
         phone: json["telefono"],
         instagram: json["instagram"],
+        image: json["image"],
         school: School.fromJson(json["facultad"]),
         hobbies:
             List<Hobby>.from(json["hobbies"].map((x) => Hobby.fromJson(x))),
@@ -73,6 +76,7 @@ class User {
         "peso": weight,
         "telefono": phone,
         "instagram": instagram,
+        "image": image,
         "facultad": school.toJson(),
         "hobbies": List<dynamic>.from(hobbies.map((x) => x.toJson())),
       };

@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:get_storage/get_storage.dart';
 
 import 'app/routes/app_pages.dart';
 import 'environment/firebase_options.dart';
@@ -15,14 +14,14 @@ import 'services/authentication/strapi_authentication.dart';
 bool isFirstRun = false;
 
 void main() async {
-  // Initialize storage service
-  await GetStorage.init();
-
   // Initialization of the firebase service
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  // Initialize storage service
+  await Strapi.initConfiguration();
 
   // Check if is first time use
   await CheckFirstRun.initializeUtil();

@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:cupidum_app/app/models/user/gender.dart';
 import 'package:cupidum_app/app/models/user/hobby.dart';
 import 'package:cupidum_app/app/models/user/objective.dart';
@@ -45,12 +48,12 @@ class CreateUserController extends ControllerTemplate {
 
   saveMainInfo(String name, String lastName) {
     this.name = "$name $lastName";
-    if (bornDate != null) {
+    if (bornDate != null && userImage.value != null) {
       nextPage();
     } else {
       snackbarMessage(
-        "Favor de ingresar una fecha",
-        "Creo que olvidaste colocar tu fecha de nacimiento",
+        "Favor de llenar los campos",
+        "Creo que olvidaste llenar algunos campos",
       );
     }
   }
@@ -102,6 +105,7 @@ class CreateUserController extends ControllerTemplate {
         age: calculateAge(bornDate!),
         school: school!,
         hobbies: hobbies,
+        image: base64Encode(await userImage.value!.readAsBytes()),
       );
       await call(
         httpCall: () => _provider.createUser(user),
@@ -129,7 +133,10 @@ class CreateUserController extends ControllerTemplate {
   setBornDate(DateTime date) => bornDate = date;
 
   setUserProfileImage(ImageSource source) async {
-    final XFile? image = await _picker.pickImage(source: source);
+    final XFile? image = await _picker.pickImage(
+      source: source,
+      imageQuality: 75,
+    );
     if (image != null) {
       userImage(image);
     }

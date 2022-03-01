@@ -5,7 +5,6 @@ import 'package:cupidum_app/constants/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 import 'app/routes/app_pages.dart';
 import 'environment/firebase_options.dart';
@@ -13,14 +12,14 @@ import 'environment/firebase_options.dart';
 bool isFirstRun = false;
 
 void main() async {
-  // Initialize storage service
-  await GetStorage.init();
-
   // Initialization of the firebase service
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  // Initialize storage service
+  await Strapi.initConfiguration();
 
   // Check if is first time use
   await CheckFirstRun.initializeUtil();

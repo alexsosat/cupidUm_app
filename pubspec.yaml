@@ -41,12 +41,12 @@ dependencies:
   dots_indicator: ^2.1.0
   google_fonts: ^2.3.1
   ummobile_custom_http: ^0.0.3
-  get_storage: ^2.0.3
   syncfusion_flutter_datepicker: ^19.4.52
   image_picker: ^0.8.4+9
   flutter_icons_helper: ^0.0.5
   flutter_font_icons: ^2.2.4
   swipable_stack: ^1.2.0
+  shared_preferences: ^2.0.13
 
 dev_dependencies:
   flutter_test:

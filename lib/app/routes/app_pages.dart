@@ -14,7 +14,6 @@ import '../modules/intro/modules/register/views/register_view.dart';
 import '../modules/intro/views/intro_view.dart';
 import '../modules/presentation/bindings/presentation_binding.dart';
 import '../modules/presentation/views/presentation_view.dart';
-import '../modules/tabs/modules/home/views/home_view.dart';
 
 part 'app_routes.dart';
 
