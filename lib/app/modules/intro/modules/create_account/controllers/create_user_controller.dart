@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:cupidum_app/app/models/user/gender.dart';
 import 'package:cupidum_app/app/models/user/hobby.dart';
