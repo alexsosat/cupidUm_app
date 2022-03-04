@@ -1,5 +1,6 @@
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/create_user_view.dart';
 import 'package:cupidum_app/app/modules/tabs/bindings/navigation_bindings.dart';
+import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/views/settings_view.dart';
 import 'package:cupidum_app/app/modules/tabs/views/tabs_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -47,6 +48,10 @@ class AppPages {
     GetPage(
       name: _Paths.confirm,
       page: () => const ConfirmView(),
+    ),
+    GetPage(
+      name: _Paths.settings,
+      page: () => const SettingsView(),
     ),
     GetPage(
       name: _Paths.main,

@@ -1,5 +1,6 @@
 import 'package:cupidum_app/app/modules/tabs/controllers/user_exists_controller.dart';
 import 'package:cupidum_app/globals/overlays/dialog_overlay.dart';
+import 'package:cupidum_app/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -31,48 +32,38 @@ class _TabsViewState extends State<TabsView>
   Widget build(BuildContext context) {
     return _userExistsController.obx(
       (state) => Obx(
-        () => WillPopScope(
-          child: Scaffold(
-            body: TabBarView(
-              controller: _tabController,
-              physics: const NeverScrollableScrollPhysics(),
-              children: _controller.mainTabs,
-            ),
-            bottomNavigationBar: BottomNavigationBar(
-              items: _controller.bottomNavigationBarRootItems,
-              currentIndex: _controller.selectedIndex.value,
-              type: BottomNavigationBarType.fixed,
-              selectedItemColor: Get.theme.colorScheme.primary,
-              showSelectedLabels: false,
-              showUnselectedLabels: false,
-              iconSize: 28,
-              elevation: 0,
-              onTap: (index) => _controller.onItemTapped(index, _tabController),
-            ),
+        () => Scaffold(
+          body: TabBarView(
+            controller: _tabController,
+            physics: const NeverScrollableScrollPhysics(),
+            children: _controller.tabs.map((e) => e.page).toList(),
           ),
-          onWillPop: () async {
-            final NavigatorState navState = Navigator.of(
-                _controller.navStack[_controller.selectedIndex.value]!);
-            if (navState.canPop()) {
-              navState.pop();
-              return false;
-            } else {
-              if (_controller.selectedIndex.value == 0) {
-                _controller.changeStatus(0, _tabController);
-                openDialogWindow(
-                  title: "Advertencia",
-                  message: "Deseas abandonar la aplicación",
-                  onCancel: () => Get.back(),
-                  onConfirm: () => SystemChannels.platform
-                      .invokeMethod('SystemNavigator.pop'),
-                ); // close the app // close the app
-                return true;
-              } else {
-                _controller.onItemTapped(0, _tabController);
-                return false;
-              }
-            }
-          },
+          bottomNavigationBar: BottomNavigationBar(
+            items: _controller.tabs
+                .map(
+                  (e) => BottomNavigationBarItem(
+                    icon: Icon(e.icon),
+                    label: e.label,
+                    activeIcon: Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: HexColor.fromHex("F4F4F4"),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(e.icon),
+                    ),
+                  ),
+                )
+                .toList(),
+            currentIndex: _controller.selectedIndex.value,
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: Get.theme.colorScheme.primary,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            iconSize: 28,
+            elevation: 0,
+            onTap: (index) => _controller.changeView(index, _tabController),
+          ),
         ),
       ),
       onLoading: const Scaffold(),

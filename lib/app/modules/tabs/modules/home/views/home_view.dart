@@ -10,8 +10,8 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Flexible(flex: 2, child: HomeAppBar()),
-          Flexible(
+          const Flexible(flex: 2, child: HomeAppBar()),
+          const Flexible(
             flex: 11,
             child: MatchSwipableCards(),
           ),
