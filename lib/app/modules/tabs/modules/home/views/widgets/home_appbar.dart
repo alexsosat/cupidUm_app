@@ -1,6 +1,9 @@
+import 'package:cupidum_app/app/modules/tabs/modules/home/controllers/home_controller.dart';
+import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class HomeAppBar extends StatelessWidget {
+class HomeAppBar extends GetView<HomeController> {
   const HomeAppBar({Key? key}) : super(key: key);
 
   @override
@@ -16,17 +19,19 @@ class HomeAppBar extends StatelessWidget {
             width: 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14),
-              color: Colors.red,
+              image: DecorationImage(image: MemoryImage(controller.userImage!)),
             ),
           ),
           Text("CUPIDUM"),
-          Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(14),
-              color: Colors.red,
+          OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              minimumSize: const Size(50, 50),
             ),
+            onPressed: () => Get.toNamed(Routes.settings),
+            child: const Icon(Icons.settings),
           ),
         ],
       ),
