@@ -33,13 +33,13 @@ class _ContentNoInternetState extends State<ContentNoInternet> {
     switch (widget.errorType) {
       case InternetErrorType.client:
         imagePath = "assets/img/no_internet.svg";
-        titleText = "user_disconnection_title".tr;
-        bodyText = "user_disconnection_subtitle".tr;
+        titleText = "user_disconnection_title";
+        bodyText = "user_disconnection_subtitle";
         break;
       case InternetErrorType.server:
         imagePath = "assets/img/no_server.svg";
-        titleText = "server_disconnection_title".tr;
-        bodyText = "server_disconnection_subtitle".tr;
+        titleText = "server_disconnection_title";
+        bodyText = "server_disconnection_subtitle";
         break;
     }
   }

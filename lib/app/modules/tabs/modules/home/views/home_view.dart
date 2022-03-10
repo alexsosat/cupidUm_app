@@ -26,6 +26,7 @@ class HomeView extends GetView<HomeController> {
             )
           ],
         ),
+        onError: (error) => controller.internetPage(error),
       ),
     );
   }

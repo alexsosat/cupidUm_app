@@ -24,6 +24,7 @@ class HomeController extends ControllerTemplate {
       onCallError: (e) => change(null, status: e),
       onError: (e) => change(null, status: RxStatus.error(e.toString())),
     );
+
     change(null, status: RxStatus.success());
   }
 }

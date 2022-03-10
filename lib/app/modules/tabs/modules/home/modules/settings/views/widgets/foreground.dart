@@ -1,7 +1,13 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 
 class Foreground extends StatelessWidget {
-  const Foreground({Key? key}) : super(key: key);
+  const Foreground({Key? key, required this.name, required this.image}) : super(key: key);
+
+  final String name;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +35,13 @@ class Foreground extends StatelessWidget {
               leading: Container(
                 width: 40,
                 height: 40,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.pink,
                   shape: BoxShape.circle,
+                  image: DecorationImage(image: MemoryImage(base64Decode(image)), fit: BoxFit.cover)
                 ),
               ),
-              title: Text("Javier Ramon Gonzalez"),
+              title: Text(name),
             ),
             const Divider(),
             ListTile(

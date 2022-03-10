@@ -68,9 +68,7 @@ class _TabsViewState extends State<TabsView>
       ),
       onLoading: const Scaffold(),
       onError: (e) => Scaffold(
-        body: Center(
-          child: Text(e!),
-        ),
+        body: _userExistsController.internetPage(e)
       ),
     );
   }

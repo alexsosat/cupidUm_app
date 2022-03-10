@@ -1,18 +1,18 @@
+import 'package:cupidum_app/app/models/user/user.dart';
 import 'package:cupidum_app/app/providers/user_provider.dart';
-import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:cupidum_app/globals/controller_template.dart';
 import 'package:get/get.dart';
 
-class UserExistsController extends ControllerTemplate {
+class SettingsController extends ControllerTemplate <User>{
   final _provider = UserProvider();
-
-  @override
+  
+    @override
   void refreshContent() {
     change(null,status: RxStatus.loading());
     loadData();
     super.refreshContent();
   }
-
+  
   @override
   void onInit() {
     loadData();
@@ -20,17 +20,14 @@ class UserExistsController extends ControllerTemplate {
   }
 
   void loadData() async {
-    await call<bool>(
-      httpCall: () => _provider.checkIfUserExists(),
-      onSuccess: (exists) {
-        if (exists) {
-          change(null, status: RxStatus.success());
-        } else {
-          Get.offAllNamed(Routes.register_createUser);
-        }
+    await call<User>(
+      httpCall: () => _provider.getUser(),
+      onSuccess: (user) {
+        change(user, status: RxStatus.success());
       },
       onCallError: (e) => change(null, status: e),
       onError: (e) => change(null, status: RxStatus.error(e.toString())),
     );
+    
   }
 }

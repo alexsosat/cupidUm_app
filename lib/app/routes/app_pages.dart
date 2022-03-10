@@ -15,6 +15,7 @@ import '../modules/intro/modules/register/views/register_view.dart';
 import '../modules/intro/views/intro_view.dart';
 import '../modules/presentation/bindings/presentation_binding.dart';
 import '../modules/presentation/views/presentation_view.dart';
+import '../modules/tabs/modules/home/modules/settings/bindings/settings_bindings.dart';
 
 part 'app_routes.dart';
 
@@ -52,7 +53,9 @@ class AppPages {
     GetPage(
       name: _Paths.settings,
       page: () => const SettingsView(),
+      binding: SettingsBinding(),
     ),
+
     GetPage(
       name: _Paths.main,
       page: () => const TabsView(),
