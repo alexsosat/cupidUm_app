@@ -19,7 +19,8 @@ class HomeAppBar extends GetView<HomeController> {
             width: 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14),
-              image: DecorationImage(image: MemoryImage(controller.userImage!)),
+              image: DecorationImage(
+                  image: MemoryImage(controller.userImage!), fit: BoxFit.cover),
             ),
           ),
           Text("CUPIDUM"),
