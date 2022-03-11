@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:cupidum_app/utils/colors.dart';
 import 'package:flutter/material.dart';

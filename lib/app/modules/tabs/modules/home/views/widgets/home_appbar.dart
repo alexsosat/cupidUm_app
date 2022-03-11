@@ -23,7 +23,7 @@ class HomeAppBar extends GetView<HomeController> {
                   image: MemoryImage(controller.userImage!), fit: BoxFit.cover),
             ),
           ),
-          Text("CUPIDUM"),
+          const Text("CUPIDUM"),
           OutlinedButton(
             style: OutlinedButton.styleFrom(
               shape: RoundedRectangleBorder(

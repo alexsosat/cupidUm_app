@@ -1,8 +1,6 @@
 import 'package:cupidum_app/app/modules/tabs/controllers/user_exists_controller.dart';
-import 'package:cupidum_app/globals/overlays/dialog_overlay.dart';
 import 'package:cupidum_app/utils/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../controllers/tabs_controller.dart';
@@ -67,9 +65,7 @@ class _TabsViewState extends State<TabsView>
         ),
       ),
       onLoading: const Scaffold(),
-      onError: (e) => Scaffold(
-        body: _userExistsController.internetPage(e)
-      ),
+      onError: (e) => Scaffold(body: _userExistsController.internetPage(e)),
     );
   }
 }

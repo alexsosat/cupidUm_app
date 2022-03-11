@@ -1,5 +1,6 @@
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/create_user_view.dart';
 import 'package:cupidum_app/app/modules/tabs/bindings/navigation_bindings.dart';
+import 'package:cupidum_app/app/modules/tabs/modules/chat/modules/chat_room/views/chat_room_view.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/views/settings_view.dart';
 import 'package:cupidum_app/app/modules/tabs/views/tabs_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -55,11 +56,14 @@ class AppPages {
       page: () => const SettingsView(),
       binding: SettingsBinding(),
     ),
-
     GetPage(
       name: _Paths.main,
       page: () => const TabsView(),
       binding: TabsBinding(),
+    ),
+    GetPage(
+      name: _Paths.chat,
+      page: () => const ChatRoomView(),
     ),
     GetPage(
       name: _Paths.register_createUser,

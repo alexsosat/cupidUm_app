@@ -11,18 +11,18 @@ class SettingsView extends GetView<SettingsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: 
-        controller.obx((user) => Stack(
-      children: [
-        Background(),
-        Foreground(name: user!.name,image: user.image,),
-      ],
-    ),
-    onError: (error) => controller.internetPage(error),
-    ),
+      body: controller.obx(
+        (user) => Stack(
+          children: [
+            const Background(),
+            Foreground(
+              name: user!.name,
+              image: user.image,
+            ),
+          ],
+        ),
+        onError: (error) => controller.internetPage(error),
+      ),
     );
-        
-        
-        
   }
 }
