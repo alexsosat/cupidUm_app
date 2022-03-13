@@ -53,14 +53,15 @@ class Foreground extends StatelessWidget {
                     ),
               ),
             ),
-            const ListTile(
-              title: Text(
+            ListTile(
+              title: const Text(
                 "Editar perfil",
               ),
-              trailing: Icon(
+              trailing: const Icon(
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),
+              onTap: () {},
             ),
             const ListTile(
               title: Text(

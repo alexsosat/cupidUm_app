@@ -18,8 +18,7 @@ class Background extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ReturnButton(),
-            const SizedBox(height: 30),
+            const SizedBox(height: 70),
             Text(
               "Cuenta",
               style: Theme.of(context).textTheme.headlineMedium!.copyWith(
