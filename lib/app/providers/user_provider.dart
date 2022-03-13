@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cupidum_app/app/models/user/user.dart';
 import 'package:cupidum_app/app/modules/intro/controllers/authentication_controller.dart';
 import 'package:cupidum_app/environment/strapi_keys.dart';
@@ -44,4 +46,12 @@ class UserProvider {
       },
     );
   }
+
+  Future updateUser(Map<String, dynamic> keys) => _http.customPut(
+        path: "/$userUID",
+        body: jsonEncode(keys),
+        headers: {
+          "Authorization": "Bearer ${Strapi.jwtKey}",
+        },
+      );
 }

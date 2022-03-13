@@ -13,6 +13,7 @@ abstract class Routes {
   static const settings = _Paths.settings;
   static const register_createUser = _Paths.register_createUser;
   static const main = _Paths.main;
+  static const profile_edit = _Paths.profile_edit;
   static String chat(String uid) => '/chat/$uid';
 }
 
@@ -24,6 +25,7 @@ abstract class _Paths {
   static const confirm = '/confirm-user';
   static const settings = '/settings';
   static const register_createUser = '/register/create-user';
+  static const profile_edit = '/profile-edit';
   static const main = '/';
   static const chat = '/chat/:uid';
 }

@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 class Foreground extends StatelessWidget {
   const Foreground({Key? key, required this.name, required this.image})
@@ -36,11 +38,13 @@ class Foreground extends StatelessWidget {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                    color: Colors.pink,
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: MemoryImage(base64Decode(image)),
-                        fit: BoxFit.cover)),
+                  color: Colors.pink,
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: MemoryImage(base64Decode(image)),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
               title: Text(name),
             ),
@@ -61,7 +65,13 @@ class Foreground extends StatelessWidget {
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),
-              onTap: () {},
+              onTap: () => Get.toNamed(
+                Routes.profile_edit,
+                arguments: {
+                  "name": name,
+                  "image": image,
+                },
+              ),
             ),
             const ListTile(
               title: Text(

@@ -7,10 +7,10 @@ class ReturnButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () => Get.back(),
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.zero,
-        fixedSize: Size(50, 50),
+        fixedSize: const Size(50, 50),
         primary: Colors.white,
         shadowColor: Theme.of(context).colorScheme.primary,
         elevation: 8,

@@ -15,6 +15,13 @@ class HomeController extends ControllerTemplate {
     super.onInit();
   }
 
+  @override
+  void refreshContent() {
+    change(null, status: RxStatus.loading());
+    loadData();
+    super.refreshContent();
+  }
+
   void loadData() async {
     await call<User>(
       httpCall: () => _provider.getUser(),
