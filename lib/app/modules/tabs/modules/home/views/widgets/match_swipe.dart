@@ -86,6 +86,15 @@ class MatchSwipableCards extends GetView<HomeController> {
           ),
         );
       },
+      onSwipeCompleted: (index, direction) {
+        switch (direction) {
+          case SwipeDirection.right:
+
+          case SwipeDirection.left:
+            break;
+          default:
+        }
+      },
     );
   }
 
