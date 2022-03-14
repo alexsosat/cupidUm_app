@@ -1,16 +1,20 @@
+import 'dart:convert';
 import 'dart:math';
 
+import 'package:cupidum_app/app/modules/tabs/modules/home/controllers/home_controller.dart';
 import 'package:cupidum_app/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:swipable_stack/swipable_stack.dart';
 
-class MatchSwipableCards extends StatelessWidget {
+class MatchSwipableCards extends GetView<HomeController> {
   const MatchSwipableCards({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SwipableStack(
       allowVerticalSwipe: false,
+      itemCount: controller.userList.length,
       builder: (context, properties) {
         return Container(
           margin: const EdgeInsets.all(30.0),
@@ -21,8 +25,9 @@ class MatchSwipableCards extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.grey,
             borderRadius: BorderRadius.circular(15),
-            image: const DecorationImage(
-              image: AssetImage("assets/images/placeholder.jpg"),
+            image: DecorationImage(
+              image: MemoryImage(
+                  base64Decode(controller.userList[properties.index].image)),
               fit: BoxFit.cover,
             ),
           ),
@@ -45,14 +50,14 @@ class MatchSwipableCards extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Kimberly García, 20",
+                  controller.userList[properties.index].name,
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         color: Colors.white,
                       ),
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  "Soy estudiante de ingeniería, me gusta estar en la naturaleza y disfruto mucho hacer senderismo",
+                  controller.userList[properties.index].description,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodyText2!.copyWith(

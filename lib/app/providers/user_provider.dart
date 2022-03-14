@@ -47,6 +47,16 @@ class UserProvider {
     );
   }
 
+  Future<List<User>> getUserList() => _http.customGet<List<User>>(
+        path: "",
+        mapper: (response) {
+          return List<User>.from(response.map((model) => User.fromJson(model)));
+        },
+        headers: {
+          "Authorization": "Bearer ${Strapi.jwtKey}",
+        },
+      );
+
   Future updateUser(Map<String, dynamic> keys) => _http.customPut(
         path: "/$userUID",
         body: jsonEncode(keys),

@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 class HomeController extends ControllerTemplate {
   final _provider = UserProvider();
   Uint8List? userImage;
+  List<User> userList = [];
   @override
   void onInit() {
     loadData();
@@ -27,6 +28,15 @@ class HomeController extends ControllerTemplate {
       httpCall: () => _provider.getUser(),
       onSuccess: (user) {
         userImage = base64Decode(user.image);
+      },
+      onCallError: (e) => change(null, status: e),
+      onError: (e) => change(null, status: RxStatus.error(e.toString())),
+    );
+
+    await call<List<User>>(
+      httpCall: () => _provider.getUserList(),
+      onSuccess: (userList) {
+        this.userList = userList;
       },
       onCallError: (e) => change(null, status: e),
       onError: (e) => change(null, status: RxStatus.error(e.toString())),
