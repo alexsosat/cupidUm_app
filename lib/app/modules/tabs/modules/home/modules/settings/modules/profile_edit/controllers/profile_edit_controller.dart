@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cupidum_app/app/models/user/user_form.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/controllers/home_controller.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/controllers/settings_controller.dart';
 import 'package:cupidum_app/app/providers/user_provider.dart';
@@ -13,6 +14,8 @@ class ProfileEditController extends ControllerTemplate {
   final UserProvider _provider = UserProvider();
   final ImagePicker _picker = ImagePicker();
   Rx<XFile?> userImage = Rx<XFile?>(null);
+
+  UserForm newUser = UserForm();
 
   setUserProfileImage(ImageSource source) async {
     final XFile? image = await _picker.pickImage(
@@ -40,5 +43,24 @@ class ProfileEditController extends ControllerTemplate {
       Get.find<SettingsController>().refreshContent();
       userImage(image);
     }
+  }
+
+  updateUser() {
+    call(
+      httpCall: () => _provider.updateUser(newUser.toMap()),
+      onSuccess: (data) {
+        newUser = UserForm();
+        openDialogWindow(
+          title: "Se ha modificado tu usuario",
+          message: "El usuario fue modificado exitosamente",
+        );
+        Get.find<HomeController>().refreshContent();
+        Get.find<SettingsController>().refreshContent();
+      },
+      onCallError: (error) =>
+          snackbarMessage("Error al editar usuario", error.toString()),
+      onError: (error) =>
+          snackbarMessage("Error al editar usuario", error.toString()),
+    );
   }
 }

@@ -2,6 +2,9 @@ import 'package:cupidum_app/app/modules/intro/modules/create_account/views/creat
 import 'package:cupidum_app/app/modules/tabs/bindings/navigation_bindings.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/chat/modules/chat_room/views/chat_room_view.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/bindings/profile_edit_binddings.dart';
+import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/modules/about_me/about_me_edit.dart';
+import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/modules/about_me/bindings/about_me_edit_bindings.dart';
+import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/modules/personal_data/personal_data_edit.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/views/profile_edit_view.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/views/settings_view.dart';
 import 'package:cupidum_app/app/modules/tabs/views/tabs_view.dart';
@@ -76,6 +79,15 @@ class AppPages {
       name: _Paths.profile_edit,
       page: () => ProfileEditView(),
       binding: ProfileEditBinding(),
+    ),
+    GetPage(
+      name: _Paths.personal_data_edit,
+      page: () => PersonalDataEditView(),
+    ),
+    GetPage(
+      name: _Paths.about_data_edit,
+      page: () => AboutInfoEdit(),
+      binding: AboutEditBinding(),
     ),
   ];
 }

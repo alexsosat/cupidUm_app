@@ -1,4 +1,6 @@
+import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 class Foreground extends StatelessWidget {
   const Foreground({Key? key}) : super(key: key);
@@ -32,23 +34,25 @@ class Foreground extends StatelessWidget {
               ),
             ),
             const Divider(height: 0),
-            const ListTile(
-              title: Text(
+            ListTile(
+              title: const Text(
                 "Datos personales",
               ),
-              trailing: Icon(
+              trailing: const Icon(
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),
+              onTap: () => Get.toNamed(Routes.personal_data_edit),
             ),
-            const ListTile(
-              title: Text(
+            ListTile(
+              title: const Text(
                 "Sobre mi",
               ),
-              trailing: Icon(
+              trailing: const Icon(
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),
+              onTap: () => Get.toNamed(Routes.about_data_edit),
             ),
             const ListTile(
               title: Text(

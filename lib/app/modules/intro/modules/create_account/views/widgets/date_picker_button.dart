@@ -1,12 +1,14 @@
-import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/create_user_controller.dart';
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widgets/date_picker_bottomsheet.dart';
 import 'package:cupidum_app/globals/overlays/bottomsheet.dart';
-import 'package:flutter/material.dart';
-import 'package:get/instance_manager.dart';
-import 'package:intl/intl.dart';
 
 class DatePickerButton extends StatefulWidget {
-  const DatePickerButton({Key? key}) : super(key: key);
+  final Function(DateTime) onSave;
+  const DatePickerButton({
+    Key? key,
+    required this.onSave,
+  }) : super(key: key);
 
   @override
   State<DatePickerButton> createState() => _DatePickerButtonState();
@@ -23,7 +25,7 @@ class _DatePickerButtonState extends State<DatePickerButton> {
         onPressed: () => openBottomSheet(
           DatePickerBottomSheet(
             onSave: (date) => setState(() {
-              Get.find<CreateUserController>().setBornDate(date);
+              widget.onSave(date);
               _bornDate = date;
             }),
           ),
