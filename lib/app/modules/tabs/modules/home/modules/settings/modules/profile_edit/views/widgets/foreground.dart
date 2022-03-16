@@ -63,14 +63,15 @@ class Foreground extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            const ListTile(
+            ListTile(
               title: Text(
-                "Redes sociales",
+                "Información adicional",
               ),
               trailing: Icon(
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),
+              onTap: () => Get.toNamed(Routes.aditional_data_edit),
             ),
           ],
         ),

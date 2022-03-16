@@ -1,5 +1,6 @@
 import 'package:cupidum_app/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class RoundOutlinedTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -8,6 +9,8 @@ class RoundOutlinedTextField extends StatelessWidget {
   final TextInputAction? inputAction;
   final TextInputType? inputType;
   final int maxLines;
+  final List<TextInputFormatter>? formatters;
+
   const RoundOutlinedTextField({
     Key? key,
     required this.controller,
@@ -16,6 +19,7 @@ class RoundOutlinedTextField extends StatelessWidget {
     this.hintText,
     this.inputAction,
     this.inputType,
+    this.formatters,
   }) : super(key: key);
 
   @override
@@ -33,6 +37,7 @@ class RoundOutlinedTextField extends StatelessWidget {
         textInputAction: inputAction,
         keyboardType: inputType,
         maxLines: maxLines,
+        inputFormatters: formatters,
         decoration: InputDecoration(
           labelText: labelText,
           hintText: hintText,
