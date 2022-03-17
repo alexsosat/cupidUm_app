@@ -1,5 +1,6 @@
 import 'package:cupidum_app/app/modules/tabs/modules/home/controllers/home_controller.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/views/widgets/home_appbar.dart';
+import 'package:cupidum_app/app/modules/tabs/modules/home/views/widgets/buttons.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/views/widgets/match_swipe.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,9 +21,7 @@ class HomeView extends GetView<HomeController> {
             ),
             Flexible(
               flex: 3,
-              child: Container(
-                color: Colors.grey,
-              ),
+              child: Buttonswidget(),
             )
           ],
         ),
