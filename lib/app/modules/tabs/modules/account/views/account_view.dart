@@ -22,6 +22,8 @@ class AccountView extends GetView<HomeController> {
             name: controller.user!.name,
             edad:controller.user!.age,
             descripcion:controller.user!.description,
+            peso:controller.user!.weight,
+            celular:controller.user!.phone,
             ),
         ],
       ),
