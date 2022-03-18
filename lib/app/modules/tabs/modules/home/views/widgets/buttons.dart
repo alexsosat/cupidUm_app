@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
+import 'package:swipable_stack/swipable_stack.dart';
 
-class Buttonswidget extends StatelessWidget {
+import '../../controllers/home_controller.dart';
+
+class Buttonswidget extends GetView<HomeController> {
   const Buttonswidget({Key? key}) : super(key: key);
 
   @override
@@ -10,7 +14,9 @@ class Buttonswidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            controller.actionButton.next(swipeDirection: SwipeDirection.left);
+          },
           child: Icon(
             Icons.close_rounded,
             color: Colors.red,
@@ -25,7 +31,9 @@ class Buttonswidget extends StatelessWidget {
           ),
         ),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            controller.actionButton.next(swipeDirection: SwipeDirection.right);
+          },
           child: Icon(
             Icons.favorite,
             size: 50,

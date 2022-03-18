@@ -13,6 +13,7 @@ class MatchSwipableCards extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return SwipableStack(
+      controller: controller.actionButton,
       allowVerticalSwipe: false,
       itemCount: controller.userList.length,
       builder: (context, properties) {

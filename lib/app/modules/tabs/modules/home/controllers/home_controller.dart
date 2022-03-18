@@ -5,12 +5,15 @@ import 'package:cupidum_app/app/models/user/user.dart';
 import 'package:cupidum_app/app/providers/user_provider.dart';
 import 'package:cupidum_app/globals/controller_template.dart';
 import 'package:get/get.dart';
+import 'package:swipable_stack/swipable_stack.dart';
 
 class HomeController extends ControllerTemplate {
   final _provider = UserProvider();
   Uint8List? userImage;
   List<User> userList = [];
   User? user;
+  final SwipableStackController actionButton = SwipableStackController();
+
   @override
   void onInit() {
     loadData();
