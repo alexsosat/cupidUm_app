@@ -24,7 +24,7 @@ class LoginController extends GetxController {
       Get.find<AuthenticationController>().setUser(_auth.currentUser!);
 
       if (_auth.currentUser!.emailVerified) {
-        if (await _provider.checkIfUserExists()) {
+        if (await _provider.checkIfUserExists(_auth.currentUser!.uid)) {
           Get.offAllNamed(Routes.main);
         } else {
           Get.offAllNamed(Routes.register_createUser);

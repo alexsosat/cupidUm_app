@@ -37,9 +37,10 @@ class UserProvider {
         },
       );
 
-  Future<bool> checkIfUserExists() {
+  Future<bool> checkIfUserExists([String? uid]) {
+    String? id = uid ?? userUID;
     return _http.customGet<bool>(
-      path: "/$userUID/exist",
+      path: "/$id/exist",
       mapper: (response) => response as bool,
       headers: {
         "Authorization": "Bearer ${Strapi.jwtKey}",

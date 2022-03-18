@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/views/widgets/change_password.dart';
 import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -73,15 +74,15 @@ class Foreground extends StatelessWidget {
                 },
               ),
             ),
-            const ListTile(
-              title: Text(
-                "Cambiar contraseña",
-              ),
-              trailing: Icon(
-                Icons.chevron_right_outlined,
-                color: Colors.black,
-              ),
-            ),
+            ListTile(
+                title: Text(
+                  "Cambiar contraseña",
+                ),
+                trailing: Icon(
+                  Icons.chevron_right_outlined,
+                  color: Colors.black,
+                ),
+                onTap: () => changePassword()),
             const ListTile(
               title: Text(
                 "Bloqueados",
