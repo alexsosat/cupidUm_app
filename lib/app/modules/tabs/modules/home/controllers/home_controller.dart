@@ -10,6 +10,7 @@ class HomeController extends ControllerTemplate {
   final _provider = UserProvider();
   Uint8List? userImage;
   List<User> userList = [];
+  User? user;
   @override
   void onInit() {
     loadData();
@@ -28,6 +29,7 @@ class HomeController extends ControllerTemplate {
       httpCall: () => _provider.getUser(),
       onSuccess: (user) {
         userImage = base64Decode(user.image);
+        this.user = user;
       },
       onCallError: (e) => change(null, status: e),
       onError: (e) => change(null, status: RxStatus.error(e.toString())),
