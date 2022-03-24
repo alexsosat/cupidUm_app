@@ -8,7 +8,8 @@ import 'package:get/get.dart';
 import 'package:device_preview/device_preview.dart';
 
 import 'app/routes/app_pages.dart';
-import 'constants/firebase_options.dart';
+import 'environment/firebase_options.dart';
+import 'services/authentication/strapi_authentication.dart';
 
 bool isFirstRun = false;
 
@@ -19,9 +20,15 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  // Initialize storage service
+  await Strapi.initConfiguration();
+
   // Check if is first time use
   await CheckFirstRun.initializeUtil();
   CheckFirstRun.assignFirstRoute();
+
+  // Get Strapi key
+  await Strapi().strapiLogin();
 
   runApp(
     DevicePreview(

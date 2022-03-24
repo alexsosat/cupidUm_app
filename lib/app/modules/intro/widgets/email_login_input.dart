@@ -28,9 +28,13 @@ class EmailLoginInput extends StatelessWidget {
             return "Favor de llenar este campo";
           } else if (!GetUtils.isEmail(value)) {
             return "Favor de ingresar un correo válido";
+          } else if (!value.contains("@alumno.um.edu.mx")) {
+            return "Favor de ingresar con tu correo institucional";
           }
+
           return null;
         },
+        keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.next,
       ),
     );

@@ -25,6 +25,10 @@ class IntroNavigation extends StatelessWidget {
                 child: DotsIndicator(
                   dotsCount: controller.pagesCount,
                   position: controller.currentPageIndex.value.toDouble(),
+                  decorator: DotsDecorator(
+                    activeColor: Colors.white,
+                    color: Colors.white.withOpacity(0.42),
+                  ),
                 ),
               ),
               ElevatedButton(
