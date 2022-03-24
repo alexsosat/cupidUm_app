@@ -28,15 +28,7 @@ class HobbySelectController extends ControllerTemplate<List<Hobby>> {
   }
 
   selectHobby(int index, int half, bool isSecondColumn, Hobby hobby) {
-    var userController = Get.find<CreateUserController>();
-
     int getIndex = isSecondColumn ? index + half : index;
     hobbySelected[getIndex] = !hobbySelected[getIndex];
-
-    if (hobbySelected[getIndex]) {
-      userController.hobbies.add(hobby);
-    } else {
-      userController.hobbies.remove(hobby);
-    }
   }
 }

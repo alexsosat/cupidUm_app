@@ -54,7 +54,7 @@ class Foreground extends StatelessWidget {
               ),
               onTap: () => Get.toNamed(Routes.about_data_edit),
             ),
-            const ListTile(
+            ListTile(
               title: Text(
                 "Intereses",
               ),
@@ -62,6 +62,7 @@ class Foreground extends StatelessWidget {
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),
+              onTap: () => Get.toNamed(Routes.interests_data_edit),
             ),
             ListTile(
               title: Text(

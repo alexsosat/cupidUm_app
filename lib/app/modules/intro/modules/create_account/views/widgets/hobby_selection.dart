@@ -1,15 +1,22 @@
-import 'package:cupidum_app/app/models/user/hobby.dart';
-import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/hobby_select_controller.dart';
-import 'package:cupidum_app/globals/buttons/select_button_list/selectable_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons_helper/flutter_icons_helper.dart';
 import 'package:get/get.dart';
+
+import 'package:cupidum_app/app/models/user/hobby.dart';
+import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/hobby_select_controller.dart';
+import 'package:cupidum_app/globals/buttons/select_button_list/selectable_button.dart';
 
 class HobbySelection extends StatelessWidget {
   final controller = Get.find<HobbySelectController>();
   final helper = IconHelper();
 
-  HobbySelection({Key? key}) : super(key: key);
+  final Function(int index, int half, bool secondColumn, Hobby hobby,
+      HobbySelectController controller) onItemSelect;
+
+  HobbySelection({
+    Key? key,
+    required this.onItemSelect,
+  }) : super(key: key);
 
   List<Widget> _buildButtons(
       List<Hobby> hobbies, int half, bool isSecondColumn) {
@@ -29,12 +36,15 @@ class HobbySelection extends StatelessWidget {
                 Text(hobbies[i].title),
               ],
             ),
-            onPressed: () => controller.selectHobby(
-              i,
-              half,
-              isSecondColumn,
-              hobbies[i],
-            ),
+            onPressed: () {
+              controller.selectHobby(
+                i,
+                half,
+                isSecondColumn,
+                hobbies[i],
+              );
+              onItemSelect(i, half, isSecondColumn, hobbies[i], controller);
+            },
             isActive: isSecondColumn
                 ? controller.hobbySelected[i + half]
                 : controller.hobbySelected[i],
