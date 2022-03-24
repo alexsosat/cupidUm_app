@@ -1,4 +1,5 @@
 import 'package:cupidum_app/app/modules/intro/controllers/authentication_controller.dart';
+import 'package:cupidum_app/globals/overlays/dialog_overlay.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ class RegisterController extends GetxController {
   final confirmPasswordController = TextEditingController();
 
   void register() async {
+    openLoadingDialog("Iniciando sesión");
     try {
       await _auth.createUserWithEmailAndPassword(
         email: emailController.text,
@@ -21,7 +23,7 @@ class RegisterController extends GetxController {
       User? user = FirebaseAuth.instance.currentUser;
       Get.find<AuthenticationController>().setUser(_auth.currentUser!);
       await user?.sendEmailVerification();
-
+      Get.back();
       Get.offAndToNamed(Routes.confirm);
     } catch (e) {
       Get.snackbar(
