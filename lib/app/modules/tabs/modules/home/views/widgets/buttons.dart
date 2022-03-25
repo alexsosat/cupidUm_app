@@ -9,6 +9,7 @@ class Buttonswidget extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    final deviceHeight = MediaQuery.of(context).size.height;
     return Container(
         child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -27,7 +28,7 @@ class Buttonswidget extends GetView<HomeController> {
             primary: Colors.white,
             onPrimary: Colors.red,
             shape: CircleBorder(),
-            padding: EdgeInsets.all(25),
+            padding: EdgeInsets.all(deviceHeight / 35),
           ),
         ),
         ElevatedButton(
@@ -39,10 +40,10 @@ class Buttonswidget extends GetView<HomeController> {
             size: 50,
           ),
           style: ElevatedButton.styleFrom(
-            elevation: 10,
+            elevation: 7,
             shadowColor: Theme.of(context).colorScheme.primary,
             shape: CircleBorder(),
-            padding: EdgeInsets.all(30),
+            padding: EdgeInsets.all(deviceHeight / 30),
           ),
         ),
         ElevatedButton(
@@ -57,7 +58,7 @@ class Buttonswidget extends GetView<HomeController> {
             primary: Colors.white,
             onPrimary: Colors.purple,
             shape: CircleBorder(),
-            padding: EdgeInsets.all(25),
+            padding: EdgeInsets.all(deviceHeight / 35),
           ),
         ),
       ],
