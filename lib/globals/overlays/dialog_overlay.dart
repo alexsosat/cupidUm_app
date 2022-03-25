@@ -24,27 +24,29 @@ void openDialogWindow({
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              OutlinedButton(
-                onPressed: onCancel ?? () => Get.back(),
-                child: Text(
-                  "Cancelar",
-                  style: TextStyle(
-                    color: (Get.isDarkMode) ? Colors.white : Colors.grey[800],
+              if (onCancel != null)
+                OutlinedButton(
+                  onPressed: onCancel,
+                  child: Text(
+                    "Cancelar",
+                    style: TextStyle(
+                      color: (Get.isDarkMode) ? Colors.white : Colors.grey[800],
+                    ),
                   ),
                 ),
-              ),
-              OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  backgroundColor: Get.theme.colorScheme.primary,
-                ),
-                onPressed: onConfirm ?? () => Get.back(),
-                child: const Text(
-                  "Confirmar",
-                  style: TextStyle(
-                    color: Colors.white,
+              if (onConfirm != null)
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: Get.theme.colorScheme.primary,
+                  ),
+                  onPressed: onConfirm,
+                  child: const Text(
+                    "Confirmar",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
             ],
           )
         ],

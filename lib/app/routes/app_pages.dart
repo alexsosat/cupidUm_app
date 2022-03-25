@@ -7,7 +7,6 @@ import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modul
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/modules/interests/bindings/interests_edit_bindings.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/modules/interests/interests_edit_view.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/modules/personal_data/personal_data_edit.dart';
-import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/modules/social_media/social_media_edit.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/views/profile_edit_view.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/views/settings_view.dart';
 import 'package:cupidum_app/app/modules/tabs/views/tabs_view.dart';

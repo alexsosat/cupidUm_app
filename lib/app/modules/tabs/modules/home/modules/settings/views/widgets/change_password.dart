@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 changePassword() {
   Get.dialog(AlertDialog(
-    title: Text("Cambiar contraseña"),
+    title: const Text("Cambiar contraseña"),
     content: SizedBox(
         height: 240,
         child: Column(
@@ -20,7 +20,7 @@ changePassword() {
                   controller:
                       Get.find<SettingsController>().newPasswordController),
               PillButton(
-                  child: Text("Cambiar contraseña"),
+                  child: const Text("Cambiar contraseña"),
                   onPressed: () =>
                       Get.find<SettingsController>().changePasswordFirebase()),
             ])),

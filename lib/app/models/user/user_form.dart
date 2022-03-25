@@ -13,6 +13,7 @@ import 'school.dart';
 
 class UserForm {
   String? name;
+  String? lastName;
   String? description;
   Gender? gender;
   Objective? objective;
@@ -26,6 +27,7 @@ class UserForm {
   List<Hobby>? hobbies;
   UserForm({
     this.name,
+    this.lastName,
     this.description,
     this.gender,
     this.objective,
@@ -41,6 +43,7 @@ class UserForm {
 
   UserForm copyWith({
     String? name,
+    String? lastName,
     String? description,
     Gender? gender,
     Objective? objective,
@@ -55,6 +58,7 @@ class UserForm {
   }) {
     return UserForm(
       name: name ?? this.name,
+      lastName: lastName ?? this.lastName,
       description: description ?? this.description,
       gender: gender ?? this.gender,
       objective: objective ?? this.objective,
@@ -73,6 +77,7 @@ class UserForm {
     Map<String, dynamic> map = {};
 
     if (name != null) map["nombre"] = name;
+    if (lastName != null) map["apellidos"] = lastName;
     if (description != null) map["descripcion"] = description;
     if (gender != null) map["genero"] = genderToString(gender!);
     if (objective != null) map["objetivo"] = objectiveToString(objective!);
@@ -97,7 +102,7 @@ class UserForm {
 
   @override
   String toString() {
-    return 'Demo(name: $name, description: $description, gender: $gender, objective: $objective, bornDate: $bornDate, age: $age, height: $height, weight: $weight, phone: $phone, instagram: $instagram, school: $school, hobbies: $hobbies)';
+    return 'Demo(name: $name, lastName: $lastName,description: $description, gender: $gender, objective: $objective, bornDate: $bornDate, age: $age, height: $height, weight: $weight, phone: $phone, instagram: $instagram, school: $school, hobbies: $hobbies)';
   }
 
   @override
@@ -106,6 +111,7 @@ class UserForm {
 
     return other is UserForm &&
         other.name == name &&
+        other.lastName == lastName &&
         other.description == description &&
         other.gender == gender &&
         other.objective == objective &&
@@ -122,6 +128,7 @@ class UserForm {
   @override
   int get hashCode {
     return name.hashCode ^
+        lastName.hashCode ^
         description.hashCode ^
         gender.hashCode ^
         objective.hashCode ^

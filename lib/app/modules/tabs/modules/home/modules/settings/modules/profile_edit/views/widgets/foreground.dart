@@ -58,20 +58,20 @@ class Foreground extends StatelessWidget {
               onTap: () => Get.toNamed(Routes.about_data_edit),
             ),
             ListTile(
-              title: Text(
+              title: const Text(
                 "Intereses",
               ),
-              trailing: Icon(
+              trailing: const Icon(
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),
               onTap: () => Get.toNamed(Routes.interests_data_edit),
             ),
             ListTile(
-              title: Text(
+              title: const Text(
                 "Información adicional",
               ),
-              trailing: Icon(
+              trailing: const Icon(
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),

@@ -1,4 +1,3 @@
-import 'package:cupidum_app/app/modules/intro/controllers/authentication_controller.dart';
 import 'package:cupidum_app/app/providers/user_provider.dart';
 import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:cupidum_app/globals/controller_template.dart';

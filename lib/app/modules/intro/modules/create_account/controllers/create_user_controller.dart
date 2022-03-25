@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cupidum_app/app/models/user/cluster_form.dart';
 import 'package:cupidum_app/app/models/user/gender.dart';
 import 'package:cupidum_app/app/models/user/hobby.dart';
 import 'package:cupidum_app/app/models/user/objective.dart';
@@ -27,11 +28,14 @@ class CreateUserController extends ControllerTemplate {
 
   DateTime? bornDate;
   String? name;
+  String? lastName;
   String? description;
   Objective? objective;
   Gender? gender;
   List<Hobby> hobbies = List.empty(growable: true);
   School? school;
+
+  final ClusterForm clusterForm = ClusterForm();
 
   nextPage() => pageController.animateToPage(
         ++currentIndex,
@@ -46,7 +50,8 @@ class CreateUserController extends ControllerTemplate {
       );
 
   saveMainInfo(String name, String lastName) {
-    this.name = "$name $lastName";
+    this.name = name;
+    this.lastName = lastName;
     if (bornDate != null && userImage.value != null) {
       nextPage();
     } else {
@@ -79,6 +84,18 @@ class CreateUserController extends ControllerTemplate {
     }
   }
 
+  saveClusterData() {
+    clusterForm.sex = gender == Gender.male ? 0 : 1;
+    if (!clusterForm.checkIfAnyIsNull()) {
+      nextPage();
+    } else {
+      snackbarMessage(
+        "Favor de contestar las preguntas del cuestionario",
+        "Esto es necesario para saber las personas con las que te agruparemos",
+      );
+    }
+  }
+
   saveHobbiesInfo() {
     if (hobbies.length >= 3) {
       nextPage();
@@ -97,6 +114,7 @@ class CreateUserController extends ControllerTemplate {
       User user = User(
         uid: Get.find<AuthenticationController>().userUID!,
         name: name!,
+        lastName: lastName!,
         description: description!,
         gender: gender!,
         objective: objective!,

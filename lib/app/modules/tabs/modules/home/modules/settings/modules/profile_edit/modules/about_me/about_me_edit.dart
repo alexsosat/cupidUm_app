@@ -1,5 +1,4 @@
 import 'package:cupidum_app/app/models/user/school.dart';
-import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/create_user_controller.dart';
 import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/school_select_controller.dart';
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/widgets/round_outlined_textfields.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/controllers/profile_edit_controller.dart';

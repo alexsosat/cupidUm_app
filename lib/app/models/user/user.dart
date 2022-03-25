@@ -12,6 +12,7 @@ class User {
   User({
     required this.uid,
     required this.name,
+    required this.lastName,
     required this.description,
     required this.gender,
     required this.objective,
@@ -28,6 +29,7 @@ class User {
 
   String uid;
   String name;
+  String lastName;
   String description;
   Gender gender;
   Objective objective;
@@ -41,6 +43,8 @@ class User {
   List<Hobby> hobbies;
   String image;
 
+  String get fullName => "$name $lastName";
+
   static User userFromJson(String str) => User.fromJson(json.decode(str));
 
   static String userToJson(User data) => json.encode(data.toJson());
@@ -48,6 +52,7 @@ class User {
   factory User.fromJson(Map<String, dynamic> json) => User(
         uid: json["UID"],
         name: json["nombre"],
+        lastName: json["apellidos"],
         description: json["descripcion"],
         gender: getUserGender(json["genero"]),
         objective: getUserObjective(json["objetivo"]),
@@ -66,6 +71,7 @@ class User {
   Map<String, dynamic> toJson() => {
         "UID": uid,
         "nombre": name,
+        "apellidos": lastName,
         "descripcion": description,
         "genero": genderToString(gender),
         "objetivo": objectiveToString(objective),

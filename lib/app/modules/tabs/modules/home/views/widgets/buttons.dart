@@ -9,15 +9,14 @@ class Buttonswidget extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         ElevatedButton(
           onPressed: () {
             controller.actionButton.next(swipeDirection: SwipeDirection.left);
           },
-          child: Icon(
+          child: const Icon(
             Icons.close_rounded,
             color: Colors.red,
             size: 40,
@@ -26,28 +25,28 @@ class Buttonswidget extends GetView<HomeController> {
             elevation: 5,
             primary: Colors.white,
             onPrimary: Colors.red,
-            shape: CircleBorder(),
-            padding: EdgeInsets.all(25),
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.all(25),
           ),
         ),
         ElevatedButton(
           onPressed: () {
             controller.actionButton.next(swipeDirection: SwipeDirection.right);
           },
-          child: Icon(
+          child: const Icon(
             Icons.favorite,
             size: 50,
           ),
           style: ElevatedButton.styleFrom(
             elevation: 10,
             shadowColor: Theme.of(context).colorScheme.primary,
-            shape: CircleBorder(),
-            padding: EdgeInsets.all(30),
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.all(30),
           ),
         ),
         ElevatedButton(
           onPressed: () {},
-          child: Icon(
+          child: const Icon(
             Icons.assignment_ind,
             color: Colors.purple,
             size: 40,
@@ -56,11 +55,11 @@ class Buttonswidget extends GetView<HomeController> {
             elevation: 5,
             primary: Colors.white,
             onPrimary: Colors.purple,
-            shape: CircleBorder(),
-            padding: EdgeInsets.all(25),
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.all(25),
           ),
         ),
       ],
-    ));
+    );
   }
 }

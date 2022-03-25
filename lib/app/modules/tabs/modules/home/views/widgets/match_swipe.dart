@@ -51,7 +51,7 @@ class MatchSwipableCards extends GetView<HomeController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  controller.userList[properties.index].name,
+                  controller.userList[properties.index].fullName,
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         color: Colors.white,
                       ),

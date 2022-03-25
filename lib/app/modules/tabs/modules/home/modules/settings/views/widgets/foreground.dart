@@ -45,7 +45,7 @@ class Foreground extends StatelessWidget {
                   ),
                 ),
               ),
-              title: Text(user.name),
+              title: Text(user.fullName),
             ),
             const Divider(),
             ListTile(
@@ -70,10 +70,10 @@ class Foreground extends StatelessWidget {
               ),
             ),
             ListTile(
-                title: Text(
+                title: const Text(
                   "Cambiar contraseña",
                 ),
-                trailing: Icon(
+                trailing: const Icon(
                   Icons.chevron_right_outlined,
                   color: Colors.black,
                 ),

@@ -1,5 +1,4 @@
 import 'package:cupidum_app/app/models/user/hobby.dart';
-import 'package:cupidum_app/app/modules/intro/modules/create_account/controllers/create_user_controller.dart';
 import 'package:cupidum_app/app/providers/hobby_provider.dart';
 import 'package:cupidum_app/globals/controller_template.dart';
 import 'package:get/get.dart';

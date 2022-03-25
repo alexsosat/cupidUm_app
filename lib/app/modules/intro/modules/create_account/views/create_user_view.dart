@@ -5,6 +5,7 @@ import 'package:cupidum_app/app/modules/intro/modules/create_account/views/pages
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'pages/cluster_info_view.dart';
 import 'pages/gender_info_view.dart';
 import 'pages/hobbies_info_view.dart';
 
@@ -21,6 +22,7 @@ class CreateUserView extends GetView<CreateUserController> {
           MainInfoView(),
           const ObjectiveInfoView(),
           const GenderInfoView(),
+          const ClusterInfoView(),
           const HobbiesInfoView(),
           AboutInfoView(),
         ],

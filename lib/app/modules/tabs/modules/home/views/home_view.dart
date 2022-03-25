@@ -13,9 +13,9 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       body: controller.obx(
         (state) => Column(
-          children: [
-            const Flexible(flex: 2, child: HomeAppBar()),
-            const Flexible(
+          children: const [
+            Flexible(flex: 2, child: HomeAppBar()),
+            Flexible(
               flex: 11,
               child: MatchSwipableCards(),
             ),

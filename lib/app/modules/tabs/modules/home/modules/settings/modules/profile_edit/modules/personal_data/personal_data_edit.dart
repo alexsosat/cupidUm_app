@@ -59,7 +59,7 @@ class PersonalDataEditView extends GetView<ProfileEditController> {
               inputAction: TextInputAction.next,
             ),
             RoundOutlinedTextField(
-              controller: _lastNameController..text = user.name,
+              controller: _lastNameController..text = user.lastName,
               labelText: "Apellidos",
               hintText: "Ej. Ramon Gonzalez",
               inputAction: TextInputAction.done,
