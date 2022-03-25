@@ -1,3 +1,4 @@
+import 'package:cupidum_app/app/models/user/user.dart';
 import 'package:cupidum_app/app/models/user/user_form.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/controllers/profile_edit_controller.dart';
 import 'package:cupidum_app/utils/age_calculator.dart';
@@ -12,6 +13,7 @@ class PersonalDataEditView extends GetView<ProfileEditController> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final _formKey = GlobalKey<FormState>(debugLabel: '_MainInfoFormState');
+  final user = Get.arguments["user"] as User;
   PersonalDataEditView({Key? key}) : super(key: key);
   void onNextPressed() {
     if (_formKey.currentState!.validate()) {
@@ -51,18 +53,19 @@ class PersonalDataEditView extends GetView<ProfileEditController> {
             ),
             const SizedBox(height: 20),
             RoundOutlinedTextField(
-              controller: _nameController,
+              controller: _nameController..text = user.name,
               labelText: "Nombre",
               hintText: "Ej. Javier",
               inputAction: TextInputAction.next,
             ),
             RoundOutlinedTextField(
-              controller: _lastNameController,
+              controller: _lastNameController..text = user.name,
               labelText: "Apellidos",
               hintText: "Ej. Ramon Gonzalez",
               inputAction: TextInputAction.done,
             ),
             DatePickerButton(
+              initialDate: user.bornDate,
               onSave: (date) {
                 controller.newUser = UserForm(
                   bornDate: date,

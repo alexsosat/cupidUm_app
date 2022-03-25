@@ -1,9 +1,11 @@
+import 'package:cupidum_app/app/models/user/user.dart';
 import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 
 class Foreground extends StatelessWidget {
-  const Foreground({Key? key}) : super(key: key);
+  const Foreground({Key? key, required this.user}) : super(key: key);
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,8 @@ class Foreground extends StatelessWidget {
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),
-              onTap: () => Get.toNamed(Routes.personal_data_edit),
+              onTap: () => Get.toNamed(Routes.personal_data_edit,
+                  arguments: {'user': user}),
             ),
             ListTile(
               title: const Text(

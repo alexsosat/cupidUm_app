@@ -5,9 +5,11 @@ import 'package:cupidum_app/globals/overlays/bottomsheet.dart';
 
 class DatePickerButton extends StatefulWidget {
   final Function(DateTime) onSave;
+  final DateTime? initialDate;
   const DatePickerButton({
     Key? key,
     required this.onSave,
+    this.initialDate,
   }) : super(key: key);
 
   @override
@@ -50,7 +52,9 @@ class _DatePickerButtonState extends State<DatePickerButton> {
             Text(
               _bornDate != null
                   ? DateFormat('MMMM dd, yyyy').format(_bornDate!)
-                  : "Fecha de nacimiento",
+                  : widget.initialDate != null
+                      ? DateFormat('MMMM dd, yyyy').format(widget.initialDate!)
+                      : "Fecha de nacimiento",
             ),
           ],
         ),

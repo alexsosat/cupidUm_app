@@ -16,10 +16,7 @@ class SettingsView extends GetView<SettingsController> {
         (user) => Stack(
           children: [
             const Background(),
-            Foreground(
-              name: user!.name,
-              image: user.image,
-            ),
+            Foreground(user: user!),
             const Padding(
               padding: EdgeInsets.all(10.0),
               child: ReturnButton(),

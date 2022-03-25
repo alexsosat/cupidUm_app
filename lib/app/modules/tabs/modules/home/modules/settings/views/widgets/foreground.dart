@@ -1,16 +1,14 @@
 import 'dart:convert';
 
+import 'package:cupidum_app/app/models/user/user.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/views/widgets/change_password.dart';
 import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 
 class Foreground extends StatelessWidget {
-  const Foreground({Key? key, required this.name, required this.image})
-      : super(key: key);
-
-  final String name;
-  final String image;
+  const Foreground({Key? key, required this.user}) : super(key: key);
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +40,12 @@ class Foreground extends StatelessWidget {
                   color: Colors.pink,
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                    image: MemoryImage(base64Decode(image)),
+                    image: MemoryImage(base64Decode(user.image)),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-              title: Text(name),
+              title: Text(user.name),
             ),
             const Divider(),
             ListTile(
@@ -68,10 +66,7 @@ class Foreground extends StatelessWidget {
               ),
               onTap: () => Get.toNamed(
                 Routes.profile_edit,
-                arguments: {
-                  "name": name,
-                  "image": image,
-                },
+                arguments: {"user": user},
               ),
             ),
             ListTile(
