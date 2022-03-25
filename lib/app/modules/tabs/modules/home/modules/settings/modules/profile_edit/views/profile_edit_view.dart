@@ -22,7 +22,7 @@ class ProfileEditView extends StatelessWidget {
           ),
           Foreground(user: user),
           const Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: EdgeInsets.only(left: 20, top: kToolbarHeight),
             child: ReturnButton(),
           ),
         ],

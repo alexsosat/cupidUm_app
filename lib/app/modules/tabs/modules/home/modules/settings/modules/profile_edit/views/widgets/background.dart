@@ -32,7 +32,7 @@ class Background extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 50),
+            const SizedBox(height: 100),
             Text(
               "Editar perfil",
               style: Theme.of(context).textTheme.headlineMedium!.copyWith(
