@@ -53,33 +53,32 @@ class Informacion extends StatelessWidget {
         Text(descripcion, 
         ),
         const SizedBox(height: 30),
-        Visibility(
-          visible: peso!=null,
-        child: Column(children: [
+        if (peso!= null) 
+        Column(children: [
         Text('Peso',
         style: Theme.of(context).textTheme.headline5,
         ),
         Text(peso!.toString() + ' Kg', 
         ),
-        ],)),
-
         const SizedBox(height: 30),
+        ],),
 
-        Visibility(
-          visible: celular!=null,
-        child: Column(children: [
+        
+        if (peso!= null) 
+        Column(children: [
+        
         Text('Celular',
         style: Theme.of(context).textTheme.headline5,
         ),
         Text(celular!, 
         ),
-        ],)),
-        
         const SizedBox(height: 30),
+        ],),
+        
         Text('Intereses',
         style: Theme.of(context).textTheme.headline5,
         ),
-
+      
         ],
             
           ),
