@@ -60,7 +60,7 @@ class ProfileEditController extends ControllerTemplate {
       onCallError: (error) =>
           snackbarMessage("Error al editar usuario", error.toString()),
       onError: (error) =>
-          snackbarMessage("Error al editar usuario", error.toString()),
+          snackbarMessage("Error al editar usuario 2", error.toString()),
     );
   }
 }

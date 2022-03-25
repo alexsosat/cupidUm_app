@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cupidum_app/app/modules/intro/controllers/authentication_controller.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/account/views/widgets/datos_de_usuario.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/controllers/home_controller.dart';
@@ -12,12 +14,10 @@ class AccountView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: controller.obx((e)=>Stack(
         
-        fit: StackFit.expand,
         children: [
-
+          SizedBox(height: MediaQuery.of(context).size.height/2, width: double.infinity,child: Image.memory(base64Decode(controller.user!.image),fit: BoxFit.cover,),),
           Informacion(
             name: controller.user!.name,
             edad:controller.user!.age,
