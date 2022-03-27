@@ -18,6 +18,7 @@ abstract class Routes {
   static const about_data_edit = _Paths.about_data_edit;
   static const aditional_data_edit = _Paths.aditional_data_edit;
   static const interests_data_edit = _Paths.interests_data_edit;
+  static const match_done = _Paths.match_done;
   static String chat(String uid) => '/chat/$uid';
 }
 
@@ -34,6 +35,7 @@ abstract class _Paths {
   static const about_data_edit = '/about-data/edit';
   static const aditional_data_edit = '/aditional_data/edit';
   static const interests_data_edit = '/interests_data/edit';
+  static const match_done = '/match-done';
   static const main = '/';
   static const chat = '/chat/:uid';
 }

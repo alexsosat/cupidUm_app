@@ -12,6 +12,7 @@ import 'objective.dart';
 import 'school.dart';
 
 class UserForm {
+  String? uid;
   String? name;
   String? lastName;
   String? description;
@@ -25,7 +26,10 @@ class UserForm {
   String? instagram;
   School? school;
   List<Hobby>? hobbies;
+  String? image;
+
   UserForm({
+    this.uid,
     this.name,
     this.lastName,
     this.description,
@@ -39,9 +43,11 @@ class UserForm {
     this.instagram,
     this.school,
     this.hobbies,
+    this.image,
   });
 
   UserForm copyWith({
+    String? uid,
     String? name,
     String? lastName,
     String? description,
@@ -54,9 +60,11 @@ class UserForm {
     String? phone,
     String? instagram,
     School? school,
+    String? image,
     List<Hobby>? hobbies,
   }) {
     return UserForm(
+      uid: uid ?? this.uid,
       name: name ?? this.name,
       lastName: lastName ?? this.lastName,
       description: description ?? this.description,
@@ -70,12 +78,14 @@ class UserForm {
       instagram: instagram ?? this.instagram,
       school: school ?? this.school,
       hobbies: hobbies ?? this.hobbies,
+      image: image ?? this.image,
     );
   }
 
   Map<String, dynamic> toMap() {
     Map<String, dynamic> map = {};
 
+    if (uid != null) map["uid"] = uid;
     if (name != null) map["nombre"] = name;
     if (lastName != null) map["apellidos"] = lastName;
     if (description != null) map["descripcion"] = description;
@@ -91,6 +101,7 @@ class UserForm {
     if (phone != null) map["telefono"] = phone;
     if (instagram != null) map["instagram"] = instagram;
     if (school != null) map["facultad"] = school!.toJson();
+    if (image != null) map["image"] = image;
     if (hobbies != null) {
       map["hobbies"] = List<dynamic>.from(hobbies!.map((x) => x.toJson()));
     }
@@ -102,7 +113,7 @@ class UserForm {
 
   @override
   String toString() {
-    return 'Demo(name: $name, lastName: $lastName,description: $description, gender: $gender, objective: $objective, bornDate: $bornDate, age: $age, height: $height, weight: $weight, phone: $phone, instagram: $instagram, school: $school, hobbies: $hobbies)';
+    return 'Demo(uid: $uid, name: $name, lastName: $lastName,description: $description, gender: $gender, objective: $objective, bornDate: $bornDate, age: $age, height: $height, weight: $weight, phone: $phone, instagram: $instagram, school: $school, hobbies: $hobbies, image: $image)';
   }
 
   @override
@@ -110,6 +121,7 @@ class UserForm {
     if (identical(this, other)) return true;
 
     return other is UserForm &&
+        other.uid == uid &&
         other.name == name &&
         other.lastName == lastName &&
         other.description == description &&
@@ -122,12 +134,14 @@ class UserForm {
         other.phone == phone &&
         other.instagram == instagram &&
         other.school == school &&
+        other.image == image &&
         listEquals(other.hobbies, hobbies);
   }
 
   @override
   int get hashCode {
-    return name.hashCode ^
+    return uid.hashCode ^
+        name.hashCode ^
         lastName.hashCode ^
         description.hashCode ^
         gender.hashCode ^
@@ -139,6 +153,7 @@ class UserForm {
         phone.hashCode ^
         instagram.hashCode ^
         school.hashCode ^
+        image.hashCode ^
         hobbies.hashCode;
   }
 }

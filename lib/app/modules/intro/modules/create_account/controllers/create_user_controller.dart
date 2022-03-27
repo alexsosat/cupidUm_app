@@ -5,7 +5,7 @@ import 'package:cupidum_app/app/models/user/gender.dart';
 import 'package:cupidum_app/app/models/user/hobby.dart';
 import 'package:cupidum_app/app/models/user/objective.dart';
 import 'package:cupidum_app/app/models/user/school.dart';
-import 'package:cupidum_app/app/models/user/user.dart';
+import 'package:cupidum_app/app/models/user/user_form.dart';
 import 'package:cupidum_app/app/modules/intro/controllers/authentication_controller.dart';
 import 'package:cupidum_app/app/providers/user_provider.dart';
 import 'package:cupidum_app/app/routes/app_pages.dart';
@@ -111,7 +111,7 @@ class CreateUserController extends ControllerTemplate {
     openLoadingDialog("Creando perfil");
     description = desc;
     if (school != null) {
-      User user = User(
+      UserForm user = UserForm(
         uid: Get.find<AuthenticationController>().userUID!,
         name: name!,
         lastName: lastName!,

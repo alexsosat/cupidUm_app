@@ -1,4 +1,5 @@
 import 'package:cupidum_app/app/modules/intro/modules/create_account/views/create_user_view.dart';
+import 'package:cupidum_app/app/modules/match_done/match_done_view.dart';
 import 'package:cupidum_app/app/modules/tabs/bindings/navigation_bindings.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/chat/modules/chat_room/views/chat_room_view.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/bindings/profile_edit_binddings.dart';
@@ -95,6 +96,10 @@ class AppPages {
       name: _Paths.profile_edit,
       page: () => ProfileEditView(),
       binding: ProfileEditBinding(),
+    ),
+    GetPage(
+      name: _Paths.match_done,
+      page: () => MatchDoneView(),
     ),
     GetPage(
       name: _Paths.about_data_edit,

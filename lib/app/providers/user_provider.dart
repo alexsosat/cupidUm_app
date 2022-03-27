@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cupidum_app/app/models/user/user.dart';
+import 'package:cupidum_app/app/models/user/user_form.dart';
 import 'package:cupidum_app/app/modules/intro/controllers/authentication_controller.dart';
 import 'package:cupidum_app/environment/strapi_keys.dart';
 import 'package:cupidum_app/services/authentication/strapi_authentication.dart';
@@ -18,7 +19,7 @@ class UserProvider {
     baseUrl: getWebUrl() + path,
   );
 
-  Future<bool> createUser(User user) => _http.customPost<bool>(
+  Future<bool> createUser(UserForm user) => _http.customPost<bool>(
         body: user.toJson(),
         headers: {
           'Content-Type': 'application/json',
@@ -48,8 +49,8 @@ class UserProvider {
     );
   }
 
-  Future<List<User>> getUserList() => _http.customGet<List<User>>(
-        path: "",
+  Future<List<User>> findUserMatches() => _http.customGet<List<User>>(
+        path: "/findMatches/$userUID",
         mapper: (response) {
           return List<User>.from(response.map((model) => User.fromJson(model)));
         },

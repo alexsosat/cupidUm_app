@@ -1,10 +1,11 @@
 import 'dart:convert';
 
 import 'package:cupidum_app/app/models/user/user.dart';
+import 'package:cupidum_app/app/modules/intro/controllers/authentication_controller.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/views/widgets/change_password.dart';
 import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 
 class Foreground extends StatelessWidget {
   const Foreground({Key? key, required this.user}) : super(key: key);
@@ -152,11 +153,12 @@ class Foreground extends StatelessWidget {
             ),
             ListTile(
               title: Text(
-                "Eliminar cuenta",
+                "Cerrar Sesión",
                 style: Theme.of(context).textTheme.bodyText2!.copyWith(
                       color: Colors.red,
                     ),
               ),
+              onTap: () => Get.find<AuthenticationController>().signOut(),
             ),
           ],
         ),

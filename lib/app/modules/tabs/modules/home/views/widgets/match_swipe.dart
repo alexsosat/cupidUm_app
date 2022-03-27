@@ -90,7 +90,8 @@ class MatchSwipableCards extends GetView<HomeController> {
       onSwipeCompleted: (index, direction) {
         switch (direction) {
           case SwipeDirection.right:
-
+            controller.matchSwipeCardAction(index);
+            break;
           case SwipeDirection.left:
             break;
           default:

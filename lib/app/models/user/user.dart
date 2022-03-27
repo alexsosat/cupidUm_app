@@ -3,6 +3,8 @@
 //     final user = userFromJson(jsonString);
 
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
+
 import 'gender.dart';
 import 'hobby.dart';
 import 'objective.dart';
@@ -10,6 +12,7 @@ import 'school.dart';
 
 class User {
   User({
+    required this.id,
     required this.uid,
     required this.name,
     required this.lastName,
@@ -27,6 +30,7 @@ class User {
     required this.image,
   });
 
+  int id;
   String uid;
   String name;
   String lastName;
@@ -50,6 +54,7 @@ class User {
   static String userToJson(User data) => json.encode(data.toJson());
 
   factory User.fromJson(Map<String, dynamic> json) => User(
+        id: json["id"],
         uid: json["UID"],
         name: json["nombre"],
         lastName: json["apellidos"],
@@ -69,6 +74,7 @@ class User {
       );
 
   Map<String, dynamic> toJson() => {
+        "id": id,
         "UID": uid,
         "nombre": name,
         "apellidos": lastName,
@@ -86,4 +92,45 @@ class User {
         "facultad": school.toJson(),
         "hobbies": List<dynamic>.from(hobbies.map((x) => x.toJson())),
       };
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is User &&
+        other.id == id &&
+        other.uid == uid &&
+        other.name == name &&
+        other.lastName == lastName &&
+        other.description == description &&
+        other.gender == gender &&
+        other.objective == objective &&
+        other.bornDate == bornDate &&
+        other.age == age &&
+        other.height == height &&
+        other.weight == weight &&
+        other.phone == phone &&
+        other.instagram == instagram &&
+        other.school == school &&
+        listEquals(other.hobbies, hobbies);
+  }
+
+  @override
+  int get hashCode {
+    return name.hashCode ^
+        id.hashCode ^
+        uid.hashCode ^
+        lastName.hashCode ^
+        description.hashCode ^
+        gender.hashCode ^
+        objective.hashCode ^
+        bornDate.hashCode ^
+        age.hashCode ^
+        height.hashCode ^
+        weight.hashCode ^
+        phone.hashCode ^
+        instagram.hashCode ^
+        school.hashCode ^
+        hobbies.hashCode;
+  }
 }
