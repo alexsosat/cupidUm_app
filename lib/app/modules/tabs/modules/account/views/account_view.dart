@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:cupidum_app/app/modules/tabs/modules/account/views/widgets/datos_de_usuario.dart';
+import 'package:cupidum_app/app/modules/tabs/modules/account/views/widgets/user_info.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,12 +22,14 @@ class AccountView extends GetView<HomeController> {
                 fit: BoxFit.cover,
               ),
             ),
-            Informacion(
+            UserInfo(
               name: controller.user!.fullName,
               edad: controller.user!.age,
               descripcion: controller.user!.description,
               peso: controller.user!.weight,
               celular: controller.user!.phone,
+              school: controller.user!.school,
+              hobbies: controller.user!.hobbies,
             ),
           ],
         ),
