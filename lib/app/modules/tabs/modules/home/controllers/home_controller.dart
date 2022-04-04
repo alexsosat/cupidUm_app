@@ -19,6 +19,8 @@ class HomeController extends ControllerTemplate {
   final _matchProvider = MatchProvider();
   final _inWaitProvider = InWaitProvider();
 
+  int listId = 0;
+
   Uint8List? userImage;
   List<User> userList = [];
   User? user;
@@ -78,8 +80,6 @@ class HomeController extends ControllerTemplate {
       try {
         final userRequests = await _requestProvider.getUserRequests();
         if (userRequests.contains(shortMatchUser)) {
-          print("registering match");
-
           userRequests.remove(shortUser);
 
           var matchInWaitList =
@@ -99,12 +99,13 @@ class HomeController extends ControllerTemplate {
             arguments: {"user": user, "matchUser": matchUser},
           );
         } else {
-          print("sending request");
           await _requestProvider.addRequest(user!, uid: matchUser.uid);
           await _inWaitProvider.addInWait(matchUser);
         }
       } catch (e) {
-        print("algo salio mal");
+        if (kDebugMode) {
+          print("algo salio mal");
+        }
       }
     }
   }

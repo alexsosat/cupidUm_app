@@ -1,5 +1,7 @@
+import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
+import 'package:get/route_manager.dart';
 import 'package:swipable_stack/swipable_stack.dart';
 
 import '../../controllers/home_controller.dart';
@@ -46,7 +48,10 @@ class Buttonswidget extends GetView<HomeController> {
           ),
         ),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () => Get.toNamed(
+            Routes.view_profile,
+            arguments: controller.userList[controller.listId],
+          ),
           child: const Icon(
             Icons.assignment_ind,
             color: Colors.purple,

@@ -10,6 +10,7 @@ import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modul
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/modules/personal_data/personal_data_edit.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/modules/profile_edit/views/profile_edit_view.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/views/settings_view.dart';
+import 'package:cupidum_app/app/modules/tabs/modules/home/modules/view_user_profile/views/view_user_profile_view.dart';
 import 'package:cupidum_app/app/modules/tabs/views/tabs_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -105,6 +106,10 @@ class AppPages {
       name: _Paths.about_data_edit,
       page: () => AboutInfoEdit(),
       binding: AboutEditBinding(),
+    ),
+    GetPage(
+      name: _Paths.view_profile,
+      page: () => ViewUserProfileView(),
     ),
   ];
 }

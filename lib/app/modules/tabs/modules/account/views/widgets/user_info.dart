@@ -1,5 +1,5 @@
-import 'package:cupidum_app/app/modules/tabs/modules/account/views/widgets/expandable_text.dart';
-import 'package:cupidum_app/app/modules/tabs/modules/account/views/widgets/hobby_pill.dart';
+import 'package:cupidum_app/globals/expandable_text.dart';
+import 'package:cupidum_app/globals/hobby_pill.dart';
 import 'package:flutter/material.dart';
 
 import 'package:cupidum_app/app/models/user/hobby.dart';
@@ -14,6 +14,7 @@ class UserInfo extends StatelessWidget {
   final double? peso;
   final String? celular;
   final List<Hobby> hobbies;
+  final isFullScreen;
   const UserInfo({
     Key? key,
     required this.name,
@@ -23,6 +24,7 @@ class UserInfo extends StatelessWidget {
     this.peso,
     this.celular,
     required this.hobbies,
+    this.isFullScreen = false,
   }) : super(key: key);
 
   @override
@@ -34,7 +36,7 @@ class UserInfo extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.fromLTRB(35, 0, 35, 0),
         width: double.infinity,
-        height: deviceHeight * 3 / 6,
+        height: (isFullScreen) ? deviceHeight * 4 / 7 : deviceHeight * 3 / 6,
         decoration: const BoxDecoration(
           color: Color.fromARGB(255, 255, 255, 255),
           borderRadius: BorderRadius.only(

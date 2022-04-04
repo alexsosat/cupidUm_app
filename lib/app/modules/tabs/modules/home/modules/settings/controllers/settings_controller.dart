@@ -36,15 +36,15 @@ class SettingsController extends ControllerTemplate<User> {
   }
 
   void changePasswordFirebase() async {
-    print("hey");
     fb.User? user = _auth.currentUser;
     final cred = fb.EmailAuthProvider.credential(
         email: user!.email!, password: oriPasswordController.text);
 
     user.reauthenticateWithCredential(cred).then((value) {
-      user.updatePassword(newPasswordController.text).then((_) {
-        print("successfully changed the password");
-      }).catchError((error) {
+      user
+          .updatePassword(newPasswordController.text)
+          .then((_) {})
+          .catchError((error) {
         Get.snackbar(
           "Error al actualizar contraseña",
           error.toString(),

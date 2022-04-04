@@ -9,8 +9,11 @@ class ReturnButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () => Get.back(),
       style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.zero,
-        fixedSize: const Size(50, 50),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        padding: const EdgeInsets.all(0),
+        fixedSize: const Size(50, 60),
         primary: Colors.white,
         shadowColor: Theme.of(context).colorScheme.primary,
         elevation: 8,

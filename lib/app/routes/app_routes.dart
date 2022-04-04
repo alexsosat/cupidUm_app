@@ -20,6 +20,7 @@ abstract class Routes {
   static const interests_data_edit = _Paths.interests_data_edit;
   static const match_done = _Paths.match_done;
   static String chat(String uid) => '/chat/$uid';
+  static const view_profile = _Paths.view_profile;
 }
 
 abstract class _Paths {
@@ -38,4 +39,5 @@ abstract class _Paths {
   static const match_done = '/match-done';
   static const main = '/';
   static const chat = '/chat/:uid';
+  static const view_profile = "/view_profile";
 }
