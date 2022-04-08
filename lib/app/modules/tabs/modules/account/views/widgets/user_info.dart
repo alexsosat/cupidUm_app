@@ -14,7 +14,7 @@ class UserInfo extends StatelessWidget {
   final double? peso;
   final String? celular;
   final List<Hobby> hobbies;
-  final isFullScreen;
+  final bool isFullScreen;
   const UserInfo({
     Key? key,
     required this.name,

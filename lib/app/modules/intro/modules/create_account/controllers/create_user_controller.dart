@@ -120,6 +120,7 @@ class CreateUserController extends ControllerTemplate {
         objective: objective!,
         bornDate: bornDate!,
         age: calculateAge(bornDate!),
+        cluster: -1,
         school: school!,
         hobbies: hobbies,
         image: base64Encode(await userImage.value!.readAsBytes()),

@@ -27,6 +27,7 @@ class UserForm {
   School? school;
   List<Hobby>? hobbies;
   String? image;
+  int? cluster;
 
   UserForm({
     this.uid,
@@ -44,6 +45,7 @@ class UserForm {
     this.school,
     this.hobbies,
     this.image,
+    this.cluster,
   });
 
   UserForm copyWith({
@@ -62,6 +64,7 @@ class UserForm {
     School? school,
     String? image,
     List<Hobby>? hobbies,
+    int? cluster,
   }) {
     return UserForm(
       uid: uid ?? this.uid,
@@ -79,6 +82,7 @@ class UserForm {
       school: school ?? this.school,
       hobbies: hobbies ?? this.hobbies,
       image: image ?? this.image,
+      cluster: cluster ?? this.cluster,
     );
   }
 
@@ -100,6 +104,7 @@ class UserForm {
     if (weight != null) map["peso"] = weight;
     if (phone != null) map["telefono"] = phone;
     if (instagram != null) map["instagram"] = instagram;
+    if (cluster != null) map["cluster"] = cluster;
     if (school != null) map["facultad"] = school!.toJson();
     if (image != null) map["image"] = image;
     if (hobbies != null) {
@@ -113,7 +118,7 @@ class UserForm {
 
   @override
   String toString() {
-    return 'Demo(uid: $uid, name: $name, lastName: $lastName,description: $description, gender: $gender, objective: $objective, bornDate: $bornDate, age: $age, height: $height, weight: $weight, phone: $phone, instagram: $instagram, school: $school, hobbies: $hobbies, image: $image)';
+    return 'Demo(uid: $uid, name: $name, lastName: $lastName,description: $description, gender: $gender, objective: $objective, cluster: $cluster ,bornDate: $bornDate, age: $age, height: $height, weight: $weight, phone: $phone, instagram: $instagram, school: $school, hobbies: $hobbies, image: $image)';
   }
 
   @override
@@ -129,6 +134,7 @@ class UserForm {
         other.objective == objective &&
         other.bornDate == bornDate &&
         other.age == age &&
+        other.cluster == cluster &&
         other.height == height &&
         other.weight == weight &&
         other.phone == phone &&
@@ -148,6 +154,7 @@ class UserForm {
         objective.hashCode ^
         bornDate.hashCode ^
         age.hashCode ^
+        cluster.hashCode ^
         height.hashCode ^
         weight.hashCode ^
         phone.hashCode ^

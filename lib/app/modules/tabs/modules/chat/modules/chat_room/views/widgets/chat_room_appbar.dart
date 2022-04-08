@@ -38,27 +38,27 @@ class ChatRoomAppbar extends StatelessWidget {
         ),
       ),
     );
-    return AppBar(
-      leading: OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          minimumSize: const Size(50, 50),
-        ),
-        onPressed: () => Get.back(),
-        child: const Icon(Icons.chevron_left),
-      ),
-      title: Text(
-        "Adriana",
-        style: TextStyle(
-          color: Get.isDarkMode ? Colors.white : Colors.black,
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-    );
+    // return AppBar(
+    //   leading: OutlinedButton(
+    //     style: OutlinedButton.styleFrom(
+    //       shape: RoundedRectangleBorder(
+    //         borderRadius: BorderRadius.circular(15),
+    //       ),
+    //       minimumSize: const Size(50, 50),
+    //     ),
+    //     onPressed: () => Get.back(),
+    //     child: const Icon(Icons.chevron_left),
+    //   ),
+    //   title: Text(
+    //     "Adriana",
+    //     style: TextStyle(
+    //       color: Get.isDarkMode ? Colors.white : Colors.black,
+    //       fontSize: 18,
+    //       fontWeight: FontWeight.bold,
+    //     ),
+    //   ),
+    //   elevation: 0,
+    //   backgroundColor: Colors.transparent,
+    // );
   }
 }
