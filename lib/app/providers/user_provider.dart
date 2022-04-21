@@ -5,6 +5,7 @@ import 'package:cupidum_app/app/models/user/user_form.dart';
 import 'package:cupidum_app/app/modules/intro/controllers/authentication_controller.dart';
 import 'package:cupidum_app/environment/strapi_keys.dart';
 import 'package:cupidum_app/services/authentication/strapi_authentication.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ummobile_custom_http/ummobile_custom_http.dart';
 

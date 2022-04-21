@@ -7,6 +7,7 @@ import 'package:cupidum_app/app/models/user/objective.dart';
 import 'package:cupidum_app/app/models/user/school.dart';
 import 'package:cupidum_app/app/models/user/user_form.dart';
 import 'package:cupidum_app/app/modules/intro/controllers/authentication_controller.dart';
+import 'package:cupidum_app/app/providers/cluster_provider.dart';
 import 'package:cupidum_app/app/providers/user_provider.dart';
 import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:cupidum_app/globals/controller_template.dart';
@@ -22,7 +23,7 @@ class CreateUserController extends ControllerTemplate {
   int currentIndex = 0;
 
   final UserProvider _provider = UserProvider();
-
+  final ClusterProvider _clusterProvider = ClusterProvider();
   final ImagePicker _picker = ImagePicker();
   Rx<XFile?> userImage = Rx<XFile?>(null);
 
@@ -87,6 +88,7 @@ class CreateUserController extends ControllerTemplate {
   saveClusterData() {
     clusterForm.sex = gender == Gender.male ? 0 : 1;
     if (!clusterForm.checkIfAnyIsNull()) {
+      debugPrint(clusterForm.toJson());
       nextPage();
     } else {
       snackbarMessage(
@@ -111,6 +113,24 @@ class CreateUserController extends ControllerTemplate {
     openLoadingDialog("Creando perfil");
     description = desc;
     if (school != null) {
+      int cluster = -1;
+
+      await call<int>(
+        httpCall: () => _clusterProvider.getCluster(clusterForm),
+        onSuccess: (response) {
+          print(response);
+          cluster = response;
+        },
+        onCallError: (e) {
+          print("error");
+        },
+        onError: (e) {
+          print("error3");
+        },
+      );
+
+      print("object");
+
       UserForm user = UserForm(
         uid: Get.find<AuthenticationController>().userUID!,
         name: name!,
@@ -120,26 +140,33 @@ class CreateUserController extends ControllerTemplate {
         objective: objective!,
         bornDate: bornDate!,
         age: calculateAge(bornDate!),
-        cluster: -1,
+        cluster: cluster,
         school: school!,
         hobbies: hobbies,
         image: base64Encode(await userImage.value!.readAsBytes()),
       );
-      await call(
+
+      debugPrint(user.toJson());
+
+      Get.back();
+
+      /*await call(
         httpCall: () => _provider.createUser(user),
         onSuccess: (value) {
           Get.back();
           Get.toNamed(Routes.main);
         },
         onCallError: (exception) {
+          print("object");
           Get.back();
           snackbarMessage("Ocurrio un error", value.toString());
         },
         onError: (exception) {
+          print("object3");
           Get.back();
           snackbarMessage("Ocurrio un error", value.toString());
         },
-      );
+      );*/
     } else {
       snackbarMessage(
         "Favor de ingresar una escuela",

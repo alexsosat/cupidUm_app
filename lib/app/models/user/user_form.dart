@@ -89,7 +89,7 @@ class UserForm {
   Map<String, dynamic> toMap() {
     Map<String, dynamic> map = {};
 
-    if (uid != null) map["uid"] = uid;
+    if (uid != null) map["UID"] = uid;
     if (name != null) map["nombre"] = name;
     if (lastName != null) map["apellidos"] = lastName;
     if (description != null) map["descripcion"] = description;
