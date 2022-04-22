@@ -2,7 +2,7 @@
     package="com.example.cupidum_app">
    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="cupidum_app"
+        android:label="CupidUM"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

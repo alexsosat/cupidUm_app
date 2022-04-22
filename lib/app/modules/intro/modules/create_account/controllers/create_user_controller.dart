@@ -88,7 +88,6 @@ class CreateUserController extends ControllerTemplate {
   saveClusterData() {
     clusterForm.sex = gender == Gender.male ? 0 : 1;
     if (!clusterForm.checkIfAnyIsNull()) {
-      debugPrint(clusterForm.toJson());
       nextPage();
     } else {
       snackbarMessage(
@@ -118,18 +117,11 @@ class CreateUserController extends ControllerTemplate {
       await call<int>(
         httpCall: () => _clusterProvider.getCluster(clusterForm),
         onSuccess: (response) {
-          print(response);
           cluster = response;
         },
-        onCallError: (e) {
-          print("error");
-        },
-        onError: (e) {
-          print("error3");
-        },
+        onCallError: (e) {},
+        onError: (e) {},
       );
-
-      print("object");
 
       UserForm user = UserForm(
         uid: Get.find<AuthenticationController>().userUID!,
@@ -146,27 +138,23 @@ class CreateUserController extends ControllerTemplate {
         image: base64Encode(await userImage.value!.readAsBytes()),
       );
 
-      debugPrint(user.toJson());
-
       Get.back();
 
-      /*await call(
+      await call(
         httpCall: () => _provider.createUser(user),
         onSuccess: (value) {
           Get.back();
           Get.toNamed(Routes.main);
         },
         onCallError: (exception) {
-          print("object");
           Get.back();
           snackbarMessage("Ocurrio un error", value.toString());
         },
         onError: (exception) {
-          print("object3");
           Get.back();
           snackbarMessage("Ocurrio un error", value.toString());
         },
-      );*/
+      );
     } else {
       snackbarMessage(
         "Favor de ingresar una escuela",

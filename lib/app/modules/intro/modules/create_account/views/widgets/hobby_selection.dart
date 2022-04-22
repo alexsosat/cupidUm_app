@@ -33,7 +33,7 @@ class HobbySelection extends StatelessWidget {
                   helper.getIconByName(hobbies[i].icon),
                 ),
                 const SizedBox(width: 15),
-                Text(hobbies[i].title),
+                Flexible(child: Text(hobbies[i].title)),
               ],
             ),
             onPressed: () {
