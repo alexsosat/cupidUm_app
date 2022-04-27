@@ -63,7 +63,7 @@ final ThemeData darkTheme = ThemeData(
         fontSize: 34,
       ),
       headline3: Get.textTheme.headline3!.copyWith(
-        color: Colors.black,
+        color: Get.isDarkMode ? Colors.black : Colors.white,
         fontWeight: FontWeight.w800,
         fontSize: 24,
       ),

@@ -28,10 +28,10 @@ class PillButton extends StatelessWidget {
           fixedSize: const Size(double.maxFinite, 55),
           shape: const StadiumBorder(),
           primary: color,
+          onPrimary: Colors.white,
           elevation: 5,
-          textStyle: GoogleFonts.lato(
+          textStyle: GoogleFonts.mulish(
             textStyle: const TextStyle(
-              color: Colors.white,
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),

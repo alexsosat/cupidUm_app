@@ -1,6 +1,8 @@
+import 'package:cupidum_app/app/routes/app_pages.dart';
 import 'package:cupidum_app/globals/lists/flex_list_view.dart';
 import 'package:cupidum_app/globals/buttons/pill_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ForeGroundSection extends StatelessWidget {
   final String title;
@@ -32,9 +34,9 @@ class ForeGroundSection extends StatelessWidget {
         child: Container(
           width: double.infinity,
           height: deviceHeight * 2 / 3,
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
+          decoration: BoxDecoration(
+            color: Theme.of(context).cardColor,
+            borderRadius: const BorderRadius.only(
               topRight: Radius.circular(30.0),
               topLeft: Radius.circular(30.0),
             ),
@@ -50,7 +52,7 @@ class ForeGroundSection extends StatelessWidget {
               TextButton(
                 style: TextButton.styleFrom(
                     primary: Colors.grey, padding: const EdgeInsets.all(0)),
-                onPressed: () {},
+                onPressed: () => Get.offAndToNamed(Routes.register),
                 child: Text(
                   subtitle,
                 ),
