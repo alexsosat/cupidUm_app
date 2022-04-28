@@ -18,8 +18,7 @@ class PersonalDataEditView extends GetView<ProfileEditController> {
   void onNextPressed() {
     if (_formKey.currentState!.validate()) {
       controller.newUser = controller.newUser.copyWith(
-        name: "${_nameController.text} ${_lastNameController.text}",
-      );
+          name: _nameController.text, lastName: _lastNameController.text);
       Get.find<ProfileEditController>().updateUser();
     }
   }

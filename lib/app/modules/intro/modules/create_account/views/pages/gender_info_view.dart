@@ -44,10 +44,6 @@ class GenderInfoView extends GetView<CreateUserController> {
                 title: "Hombre",
                 value: Gender.male,
               ),
-              SelectableItem<Gender>(
-                title: "Prefiero no decir",
-                value: Gender.other,
-              ),
             ],
             onChange: (value) => controller.gender = value as Gender,
           ),

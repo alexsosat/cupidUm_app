@@ -16,7 +16,7 @@ class PageViews extends GetView<PresentationController> {
       onPageChanged: (index) => controller.currentPageIndex(index),
       children: [
         PageData(
-          imageRoute: "assets/images/logo.png",
+          imageRoute: "assets/images/icon-1.png",
           title: "Hola",
           subtitle: '"La pandemia nos separó\nCUPIDUM nos unió"',
           body:
@@ -27,6 +27,7 @@ class PageViews extends GetView<PresentationController> {
           ],
         ),
         PageData(
+          imageRoute: "assets/images/icon-2.png",
           title: "¿Quiénes somos?",
           body:
               "Cupidum es una aplicación creada especialmente para tí donde podrás encontrar nuevos amigos para charlar un buen rato y ¿Por qué no? tu media naranja.",
@@ -36,6 +37,7 @@ class PageViews extends GetView<PresentationController> {
           ],
         ),
         PageData(
+          imageRoute: "assets/images/icon-3.png",
           title: "Recuerda",
           body:
               "Queremos crear la mejor comunidad, Respeta a todas las personas que conozcas y no olvides divertirte.",

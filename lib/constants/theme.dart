@@ -47,6 +47,7 @@ final ThemeData darkTheme = ThemeData(
     primary: HexColor.fromHex("FD397F"),
     secondary: HexColor.fromHex("481380"),
   ),
+  hintColor: Colors.grey,
   backgroundColor: HexColor.fromHex("312B35"),
 
   // Define the default font family.
