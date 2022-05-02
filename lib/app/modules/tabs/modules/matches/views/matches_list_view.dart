@@ -42,10 +42,9 @@ class MatchesList extends GetView<MatchesListController> {
                       shape: BoxShape.circle,
                     ),
                   ),
-                  onTap: () => Get.toNamed(
-                    Routes.view_profile,
-                    arguments: matches[index],
-                  ),
+                  onTap: () {
+                    controller.loadUser(matches[index].uid);
+                  },
                 ),
               ),
             ),

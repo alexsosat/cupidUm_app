@@ -30,8 +30,8 @@ class UserProvider {
       );
 
   /// Retrieves the user information
-  Future<User> getUser() => _http.customGet<User>(
-        path: "/$userUID",
+  Future<User> getUser([String? UID]) => _http.customGet<User>(
+        path: "/" + (UID ?? userUID!),
         mapper: (json) => User.fromJson(json),
         headers: {
           "Authorization": "Bearer ${Strapi.jwtKey}",
