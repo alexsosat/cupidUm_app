@@ -59,6 +59,8 @@ class UserInfo extends StatelessWidget {
             const SizedBox(height: 30),
             if (school != null)
               Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
@@ -71,20 +73,19 @@ class UserInfo extends StatelessWidget {
                     school!.fullName,
                   ),
                   const SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: HexColor.fromHex("E94057").withOpacity(0.7),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(
-                          school!.acronym,
-                          style: Theme.of(context).textTheme.button,
-                        ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: HexColor.fromHex("E94057").withOpacity(0.7),
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                    ],
+                      child: Text(
+                        school!.acronym,
+                        style: Theme.of(context).textTheme.button,
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 30),
                 ],
