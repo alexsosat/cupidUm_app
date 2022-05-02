@@ -4,6 +4,7 @@ import 'package:cupidum_app/app/models/user/user.dart';
 import 'package:cupidum_app/app/modules/intro/controllers/authentication_controller.dart';
 import 'package:cupidum_app/app/modules/tabs/modules/home/modules/settings/views/widgets/change_password.dart';
 import 'package:cupidum_app/app/routes/app_pages.dart';
+import 'package:cupidum_app/utils/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -79,7 +80,7 @@ class Foreground extends StatelessWidget {
                   color: Colors.black,
                 ),
                 onTap: () => changePassword()),
-            const ListTile(
+            /*const ListTile(
               title: Text(
                 "Bloqueados",
               ),
@@ -114,7 +115,7 @@ class Foreground extends StatelessWidget {
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),
-            ),
+            ),*/
             const Divider(),
             ListTile(
               title: Text(
@@ -124,7 +125,7 @@ class Foreground extends StatelessWidget {
                     ),
               ),
             ),
-            const ListTile(
+            /*const ListTile(
               title: Text(
                 "Sobre nosotros",
               ),
@@ -132,24 +133,28 @@ class Foreground extends StatelessWidget {
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),
-            ),
-            const ListTile(
-              title: Text(
+            ),*/
+            ListTile(
+              title: const Text(
                 "Política de privacidad",
               ),
-              trailing: Icon(
+              trailing: const Icon(
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),
+              onTap: () =>
+                  openUrl('http://cupidum.tk/Politicas%20de%20privacidad.html'),
             ),
-            const ListTile(
-              title: Text(
+            ListTile(
+              title: const Text(
                 "Términos y condiciones",
               ),
-              trailing: Icon(
+              trailing: const Icon(
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),
+              onTap: () =>
+                  openUrl('http://cupidum.tk/Terminos%20y%20condiciones.html'),
             ),
             ListTile(
               title: Text(

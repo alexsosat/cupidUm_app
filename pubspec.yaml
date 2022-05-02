@@ -47,6 +47,7 @@ dependencies:
   flutter_font_icons: ^2.2.4
   swipable_stack: ^1.2.0
   shared_preferences: ^2.0.13
+  url_launcher: ^6.1.0
 
 dev_dependencies:
   flutter_test:
