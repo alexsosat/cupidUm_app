@@ -10,6 +10,7 @@ class HobbyProvider {
   /// The API client.
   final UMMobileCustomHttp _http = UMMobileCustomHttp(
     baseUrl: getWebUrl() + path,
+    timeout: const Duration(minutes: 1),
   );
 
   /// Retrieves whether the user exists on the api

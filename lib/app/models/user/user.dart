@@ -25,7 +25,7 @@ class User {
     this.weight,
     this.phone,
     this.instagram,
-    required this.school,
+    this.school,
     required this.hobbies,
     required this.image,
   });
@@ -43,7 +43,7 @@ class User {
   double? weight;
   String? phone;
   String? instagram;
-  School school;
+  School? school;
   List<Hobby> hobbies;
   String image;
 
@@ -68,9 +68,13 @@ class User {
         phone: json["telefono"],
         instagram: json["instagram"],
         image: json["image"],
-        school: School.fromJson(json["facultad"]),
-        hobbies:
-            List<Hobby>.from(json["hobbies"].map((x) => Hobby.fromJson(x))),
+        school: (json["facultad"] != null &&
+                json["facultad"] is Map<String, dynamic>)
+            ? School.fromJson(json["facultad"])
+            : null,
+        hobbies: json["hobbies"] != null
+            ? List<Hobby>.from(json["hobbies"].map((x) => Hobby.fromJson(x)))
+            : [],
       );
 
   Map<String, dynamic> toJson() => {
@@ -89,7 +93,7 @@ class User {
         "telefono": phone,
         "instagram": instagram,
         "image": image,
-        "facultad": school.toJson(),
+        "facultad": school!.toJson(),
         "hobbies": List<dynamic>.from(hobbies.map((x) => x.toJson())),
       };
 

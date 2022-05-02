@@ -9,21 +9,21 @@ import 'package:cupidum_app/utils/colors.dart';
 class UserInfo extends StatelessWidget {
   final String name;
   final int edad;
-  final School school;
+  final School? school;
   final String descripcion;
   final double? peso;
   final String? celular;
-  final List<Hobby> hobbies;
+  final List<Hobby>? hobbies;
   final bool isFullScreen;
   const UserInfo({
     Key? key,
     required this.name,
     required this.edad,
-    required this.school,
+    this.school,
     required this.descripcion,
     this.peso,
     this.celular,
-    required this.hobbies,
+    this.hobbies,
     this.isFullScreen = false,
   }) : super(key: key);
 
@@ -57,32 +57,38 @@ class UserInfo extends StatelessWidget {
               edad.toString() + ' Años',
             ),
             const SizedBox(height: 30),
-            Text(
-              'Carrera',
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    fontWeight: FontWeight.bold,
+            if (school != null)
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'Facultad',
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
-            ),
-            Text(
-              school.fullName,
-            ),
-            const SizedBox(height: 10),
-            Row(
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: HexColor.fromHex("E94057").withOpacity(0.7),
-                    borderRadius: BorderRadius.circular(15),
+                  Text(
+                    school!.fullName,
                   ),
-                  child: Text(
-                    school.acronym,
-                    style: Theme.of(context).textTheme.button,
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: HexColor.fromHex("E94057").withOpacity(0.7),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Text(
+                          school!.acronym,
+                          style: Theme.of(context).textTheme.button,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 30),
+                  const SizedBox(height: 30),
+                ],
+              ),
             Text(
               'Sobre mí',
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
@@ -130,7 +136,7 @@ class UserInfo extends StatelessWidget {
             const SizedBox(height: 10),
             Wrap(
               direction: Axis.horizontal,
-              children: hobbies
+              children: hobbies!
                   .map(
                     (hobby) => Row(
                       mainAxisSize: MainAxisSize.min,

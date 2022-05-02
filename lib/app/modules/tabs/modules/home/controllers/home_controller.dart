@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:cupidum_app/app/models/user/short_user.dart';
 import 'package:cupidum_app/app/models/user/user.dart';
+import 'package:cupidum_app/app/modules/tabs/modules/matches/controllers/matches_list_controller.dart';
 import 'package:cupidum_app/app/providers/inwait_provider.dart';
 import 'package:cupidum_app/app/providers/match_provider.dart';
 import 'package:cupidum_app/app/providers/request_provider.dart';
@@ -94,6 +95,9 @@ class HomeController extends ControllerTemplate {
           await _requestProvider.editUserList(userRequests);
           await _matchProvider.addMatch(matchUser);
           await _matchProvider.addMatch(user!, uid: matchUser.uid);
+
+          Get.find<MatchesListController>().refreshContent();
+
           Get.toNamed(
             Routes.match_done,
             arguments: {"user": user, "matchUser": matchUser},
