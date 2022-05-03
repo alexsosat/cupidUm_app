@@ -133,7 +133,7 @@ class Foreground extends StatelessWidget {
                 Icons.chevron_right_outlined,
                 color: Colors.black,
               ),
-            ),*/
+            ),
             ListTile(
               title: const Text(
                 "Política de privacidad",
@@ -155,7 +155,7 @@ class Foreground extends StatelessWidget {
               ),
               onTap: () =>
                   openUrl('http://cupidum.tk/Terminos%20y%20condiciones.html'),
-            ),
+            ),*/
             ListTile(
               title: Text(
                 "Cerrar Sesión",
